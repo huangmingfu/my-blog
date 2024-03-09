@@ -45,7 +45,14 @@ const blogTheme = getThemeConfig({
   },
   {
     version: false,
-    message:'总访问量👁️‍🗨️ <span id="busuanzi_value_site_pv" /> 次',
+    message:'👁️‍🗨️总访问量：<span id="busuanzi_value_site_pv" /> 次',
+  },
+  {
+    version: false,
+    message:'👤访客数：<span id="busuanzi_value_site_uv" /> 次',
+  },
+  {
+    version: false,
     icpRecord: {
       name: `已运行${getDiffDate('2024-03-08')}天`,
       link: '',
