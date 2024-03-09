@@ -8,7 +8,7 @@ import { blogTheme } from './blog-theme'
 export default defineConfig({
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
-  base: '/https://friend-z.gitee.io/my-blog/',
+  base: '/friend-z.gitee.io/my-blog/',
   lang: 'zh-cn',
   title: 'a无名',
   description: 'a无名的博客，基于 vitepress+@sugarat/theme主题 实现',
