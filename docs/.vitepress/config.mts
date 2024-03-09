@@ -8,7 +8,7 @@ import { blogTheme } from './blog-theme'
 export default defineConfig({
   // 继承博客主题(@sugarat/theme)
   extends: blogTheme,
-  base: 'https://friend-z.gitee.io/my-blog/',
+  base: 'https://friend-z.gitee.io/my-blog',
   lang: 'zh-cn',
   title: 'a无名',
   description: 'a无名的博客，基于 vitepress+@sugarat/theme主题 实现',
@@ -16,7 +16,7 @@ export default defineConfig({
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: 'https://friend-z.gitee.io/my-blog/favicon.ico' }]
   ],
   themeConfig: {
     // 展示 2,3 级标题在目录中
@@ -30,7 +30,7 @@ export default defineConfig({
     lastUpdatedText: '上次更新于',
 
     // 设置logo
-    logo: '/logo.jpg',
+    logo: 'https://friend-z.gitee.io/my-blog/logo.jpg',
     // editLink: {
     //   pattern:
     //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',
@@ -38,7 +38,7 @@ export default defineConfig({
     // },
     nav: [
       { text: '首页', link: '/' },
-      { text: '关于作者', link: '/me/AboutMe' }
+      { text: '关于作者', link: '/me/aboutMe' }
     ],
     socialLinks: [
       {
