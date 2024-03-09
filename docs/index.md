@@ -13,6 +13,6 @@ blog:
     - 生活的真谛不在繁华，而在于淡泊
     - 醒，亦在人间；梦，亦在人间
   # 设置 inspiringTimeout 可以实现自动切换
-  inspiringTimeout: 3000
+  inspiringTimeout: 5000
   pageSize: 6
 ---

@@ -38,7 +38,7 @@ const blogTheme = getThemeConfig({
   {
     version: false,
     icpRecord: {
-      name: `基于VitePress+@sugarat/theme主题`,
+      name: `基于vitepress+@sugarat/theme主题`,
       link: '',
       icon:false
     },
