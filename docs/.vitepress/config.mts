@@ -10,7 +10,7 @@ export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
   title: 'a无名',
-  description: '粥里有勺糖的博客主题，基于 vitepress 实现',
+  description: 'a无名的博客，基于 vitepress+@sugarat/theme主题 实现',
   lastUpdated: true,
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [

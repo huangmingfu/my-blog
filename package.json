@@ -8,7 +8,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "deploy": "git add . && git commit -m \"gitee 自动推送\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages"
+    "deploy": "pnpm run build && git subtree push --prefix docs/.vitepress/dist origin gh-pages && del /s /q docs\\.vitepress\\dist &&  git add . && git commit -m \"gitee 自动推送\" && git push -u origin master "
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
