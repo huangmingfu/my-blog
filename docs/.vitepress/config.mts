@@ -38,7 +38,7 @@ export default defineConfig({
     // },
     nav: [
       { text: '首页', link: '/' },
-      { text: '关于作者', link: '/me/aboutMe' }
+      { text: '关于作者', link: '/me/AboutMe' }
     ],
     socialLinks: [
       {
