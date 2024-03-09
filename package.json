@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "deploy": "pnpm run build && git add . && git commit -m \"gitee 自动推送\" && git push && git push origin master && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
