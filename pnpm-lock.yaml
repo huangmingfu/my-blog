@@ -19,6 +19,9 @@ dependencies:
     version: 3.4.15(typescript@5.4.2)
 
 devDependencies:
+  busuanzi.pure.js:
+    specifier: ^1.0.3
+    version: 1.0.3
   rimraf:
     specifier: ^5.0.5
     version: 5.0.5
@@ -1068,6 +1071,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
+
+  /busuanzi.pure.js@1.0.3:
+    resolution: {integrity: sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==}
+    dev: true
 
   /character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
