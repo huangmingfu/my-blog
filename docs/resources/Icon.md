@@ -3,7 +3,7 @@ tag:
  - Resources
 description: 个人收集的一些即拿即用的图标网站~
 ---
-# 🥰 在线icon图标/emoji资源网站
+# 🙂 在线icon图标/emoji资源网站
 
 ## icon/svg图标
 [国旗SVG图标](https://nucleoapp.com/svg-flag-icons)  
@@ -15,5 +15,6 @@ description: 个人收集的一些即拿即用的图标网站~
 [icones](https://icones.js.org)   
 [Iconify图标](https://icon-sets.iconify.design/)   
 
-## emoji
-[Emoji大全](https://www.emojiall.com/zh-hans/all-emojis?type=normal) - 可直接复制粘贴到md文件
+## emoji - 可直接复制粘贴到md文件  
+[Emoji大全(需魔法)](https://www.emojiall.com/zh-hans/all-emojis?type=normal)   
+[Emoji表情大全](https://emojixd.com/)

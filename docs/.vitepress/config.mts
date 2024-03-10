@@ -46,5 +46,14 @@ export default defineConfig({
         link: 'https://github.com/212149997'
       }
     ]
-  }
+  },
+  //markdown配置
+  //不开启：图片一次性加载出来，图片越多加载越慢
+  //开启：快速打开网页，当访问到了图片的位置，它再加载出来
+  markdown: {
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
+  },
 })
