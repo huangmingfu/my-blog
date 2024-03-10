@@ -8,7 +8,7 @@ import BlogTheme from '@sugarat/theme'
 
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
-// import { useLive2d } from 'vitepress-theme-website'
+import { useLive2d } from 'vitepress-theme-website'
 import vitepressMusic from 'vitepress-plugin-music'
 import 'vitepress-plugin-music/lib/css/index.css'
 import { mp3Playlist } from '../../../utils/tool';
@@ -22,31 +22,29 @@ export default {
                 busuanzi.fetch()
             }
         }
+        //音乐插件
         vitepressMusic(mp3Playlist)
     },
-    // setup() {
-    //     if (inBrowser) {
-    //         //看板娘
-    //         useLive2d({
-    //             enable: true,
-    //             model: {
-    //                 url: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/girls-frontline/HK416-2/normal/model.json'
-    //             },
-    //             display: {
-    //                 position: 'left',
-    //                 width: '250px',
-    //                 height: '400px',
-    //                 xOffset: '0px',
-    //                 yOffset: '0px'
-    //             },
-    //             mobile: {
-    //                 show: true
-    //             },
-    //             react: {
-    //                 opacity: 0.8
-    //             }
-    //         })
-    //     }
-    // }
+    setup() {
+        //看板娘
+        useLive2d({
+            enable: true,
+            model: {
+                url: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/girls-frontline/HK416-2/normal/model.json'
+            },
+            display: {
+                position: 'right',
+                width: '130px',
+                height: '200px',
+                xOffset: '0px',
+                yOffset: '0px'
+            },
+            mobile: {
+                show: true
+            },
+            react: {
+                opacity: 0.8
+            }
+        })
+    }
 }
-// export default BlogTheme

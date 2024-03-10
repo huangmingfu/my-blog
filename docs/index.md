@@ -16,3 +16,9 @@ blog:
   inspiringTimeout: 5000
   pageSize: 6
 ---
+<style>
+  /* 音乐插件 */
+  .vitepress-music {
+    z-index:99999;
+  }
+</style>
