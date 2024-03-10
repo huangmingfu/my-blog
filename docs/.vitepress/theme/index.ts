@@ -7,16 +7,17 @@ import BlogTheme from '@sugarat/theme'
 // import './user-theme.css'
 
 import { inBrowser } from 'vitepress'
+//浏览量
 import busuanzi from 'busuanzi.pure.js'
-import { useLive2d } from 'vitepress-theme-website'
+//音乐播放插件
 import vitepressMusic from 'vitepress-plugin-music'
 import 'vitepress-plugin-music/lib/css/index.css'
 import { mp3Playlist } from '../../../utils/tool';
 
 export default {
     extends: BlogTheme,
-    //访问量统计
-    enhanceApp({ app, router }) {
+    async enhanceApp({ app, router }) {
+        //访问量统计
         if (inBrowser) {
             router.onAfterRouteChanged = () => {
                 busuanzi.fetch()
@@ -24,27 +25,23 @@ export default {
         }
         //音乐插件
         vitepressMusic(mp3Playlist)
-    },
-    setup() {
         //看板娘
-        useLive2d({
-            enable: true,
-            model: {
-                url: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/girls-frontline/HK416-2/normal/model.json'
-            },
-            display: {
-                position: 'right',
-                width: '130px',
-                height: '200px',
-                xOffset: '0px',
-                yOffset: '0px'
-            },
-            mobile: {
-                show: true
-            },
-            react: {
-                opacity: 0.8
-            }
-        })
+        if (!(import.meta as any).env.SSR) {
+            const { loadOml2d } = await import('oh-my-live2d');
+            loadOml2d({
+                sayHello: false,
+                models: [
+                    {
+                        path: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/girls-frontline/HK416-2/normal/model.json',
+                        scale: 0.05,
+                        position: [60, 100],
+                        stageStyle: {
+                            width: 250,
+                            height:350
+                        }
+                    }
+                ],
+            });
+        }
     }
 }

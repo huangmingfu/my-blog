@@ -21,4 +21,8 @@ blog:
   .vitepress-music {
     z-index:99999;
   }
+  /* 看板娘 */
+  #oml2dMenus{
+    display:none;
+  }
 </style>
