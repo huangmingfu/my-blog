@@ -9,6 +9,9 @@ import BlogTheme from '@sugarat/theme'
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
 // import { useLive2d } from 'vitepress-theme-website'
+import vitepressMusic from 'vitepress-plugin-music'
+import 'vitepress-plugin-music/lib/css/index.css'
+import { mp3Playlist } from '../../../utils/tool';
 
 export default {
     extends: BlogTheme,
@@ -19,6 +22,7 @@ export default {
                 busuanzi.fetch()
             }
         }
+        vitepressMusic(mp3Playlist)
     },
     // setup() {
     //     if (inBrowser) {
