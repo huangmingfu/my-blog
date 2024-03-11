@@ -25,53 +25,32 @@ const blogTheme = getThemeConfig({
   // 如果npx pagefind 时间过长，可以手动将其安装为项目依赖 pnpm add pagefind
   // search: false,
 
-  // 页脚
-  footer:  [{
-    version: false,
-    icpRecord: {
-      name: `Copyrights © 2024-${new Date().getFullYear()} 丨 a无名`,
-      link: '',
-      icon:false
-    },
-  },
-  {
-    version: false,
-    icpRecord: {
-      name: `基于vitepress+@sugarat/theme主题`,
-      link: '',
-      icon:false
-    },
-  },
-  // {
-  //   version: false,
-  //   message:'👁️‍🗨️总访问量：<span id="busuanzi_value_site_pv" /> 次',
-  // },
-  // {
-  //   version: false,
-  //   message:'👤访客数：<span id="busuanzi_value_site_uv" /> 次',
-  // },
-  // {
-  //   version: false,
-  //   icpRecord: {
-  //     name: `已运行${getDiffDate('2024-03-08')}天`,
-  //     link: '',
-  //     icon:false
-  //   },
-  // }
-],
-
   // 主题色修改
   themeColor: 'el-blue',
-
   // 文章默认作者
   author: 'a无名',
-
+  //右侧精选文章栏目
   hotArticle: {
     title: '🔥 精选文章',
     nextText: '换一组',
     pageSize: 9,
     empty: '暂无精选内容'
   },
+  // 页脚
+  footer:  [{
+    version: false,
+    copyright: {
+      message: `Copyrights ©️ 2024-${new Date().getFullYear()} 丨 a无名`,
+      icon: false,
+    },
+  },
+  {
+    version: false,
+    message:'基于vitepress+@sugarat/theme主题'
+  },
+],
+
+
 
   // 友链
   // friend: [

@@ -7,8 +7,8 @@ import LayoutBottom from './src/components/LayoutBottom.vue';
 // 自定义主题色
 // import './user-theme.css'
 
-import { inBrowser } from 'vitepress'
 //浏览量
+import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
 //音乐播放插件
 import vitepressMusic from 'vitepress-plugin-music'
@@ -38,7 +38,7 @@ export default {
                 sayHello: false,
                 models: [
                     {
-                        path: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/girls-frontline/HK416-2/normal/model.json',
+                        path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
                         scale: 0.05,
                         position: [60, 100],
                         stageStyle: {
