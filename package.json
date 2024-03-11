@@ -8,7 +8,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "deploy": "pnpm run build && git add . && git commit -m \"gitee 自动推送\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages"
+    "deploy": "pnpm run build && git add . && git commit -m \"gitee自动部署\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "busuanzi.pure.js": "^1.0.3",
-    "sass": "^1.64.1",
+    "sass": "^1.71.1",
     "typescript": "^5.1.6",
     "vitepress": "1.0.0-rc.45",
     "vitepress-plugin-music": "^0.0.9"

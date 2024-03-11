@@ -1,5 +1,6 @@
 import BlogTheme from '@sugarat/theme'
-
+import { h } from 'vue';
+import LayoutBottom from './src/components/LayoutBottom.vue';
 // 自定义样式重载
 // import './style.scss'
 
@@ -12,10 +13,15 @@ import busuanzi from 'busuanzi.pure.js'
 //音乐播放插件
 import vitepressMusic from 'vitepress-plugin-music'
 import 'vitepress-plugin-music/lib/css/index.css'
-import { mp3Playlist } from '../../../utils/tool';
+import { musicPlaylist } from './src/utils/tool';
 
 export default {
     extends: BlogTheme,
+    //@ts-ignore
+    Layout: h(BlogTheme.Layout, undefined, {
+        //https://vitepress.dev/zh/guide/extending-default-theme#layout-slots全量插槽文档
+        'layout-bottom': () => h(LayoutBottom)
+    }),
     async enhanceApp({ app, router }) {
         //访问量统计
         if (inBrowser) {
@@ -24,7 +30,7 @@ export default {
             }
         }
         //音乐插件
-        vitepressMusic(mp3Playlist)
+        vitepressMusic(musicPlaylist)
         //看板娘
         if (!(import.meta as any).env.SSR) {
             const { loadOml2d } = await import('oh-my-live2d');
@@ -37,7 +43,7 @@ export default {
                         position: [60, 100],
                         stageStyle: {
                             width: 250,
-                            height:350
+                            height: 370
                         }
                     }
                 ],

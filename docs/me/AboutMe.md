@@ -1,6 +1,6 @@
 ---
 top: 1
-sticky: 1
+sticky: 996
 tag:
  - Me
 sidebar: false

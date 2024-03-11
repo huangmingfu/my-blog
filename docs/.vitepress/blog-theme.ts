@@ -1,7 +1,6 @@
 // 主题独有配置
 import { getThemeConfig } from '@sugarat/theme/node'
 
-import {getDiffDate} from '../../utils/tool';
 // 开启RSS支持（RSS配置）
 // import type { Theme } from '@sugarat/theme'
 
@@ -43,22 +42,23 @@ const blogTheme = getThemeConfig({
       icon:false
     },
   },
-  {
-    version: false,
-    message:'👁️‍🗨️总访问量：<span id="busuanzi_value_site_pv" /> 次',
-  },
-  {
-    version: false,
-    message:'👤访客数：<span id="busuanzi_value_site_uv" /> 次',
-  },
-  {
-    version: false,
-    icpRecord: {
-      name: `已运行${getDiffDate('2024-03-08')}天`,
-      link: '',
-      icon:false
-    },
-  }],
+  // {
+  //   version: false,
+  //   message:'👁️‍🗨️总访问量：<span id="busuanzi_value_site_pv" /> 次',
+  // },
+  // {
+  //   version: false,
+  //   message:'👤访客数：<span id="busuanzi_value_site_uv" /> 次',
+  // },
+  // {
+  //   version: false,
+  //   icpRecord: {
+  //     name: `已运行${getDiffDate('2024-03-08')}天`,
+  //     link: '',
+  //     icon:false
+  //   },
+  // }
+],
 
   // 主题色修改
   themeColor: 'el-blue',

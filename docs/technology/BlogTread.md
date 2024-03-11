@@ -1,6 +1,6 @@
 ---
 top: 3
-sticky: 2
+sticky: 999
 tag:
  - Technology
 ---
@@ -83,4 +83,8 @@ head: [
 > 尝试过使用rimraf库： npm install rimraf --save-dev  
 代码：rimraf docs/.vitepress/dist  
 来将dist文件删除，以免在master上提交上去，但是经过一系列尝试，发现没办法同时推送两个分支，会有报错，未找到合适方法，就干脆两个分支也一起提交了上去  
-::: 
+:::
+
+### 历程总结
+**为了搭建此博客，也经历了不少，基本路程是这样的：**  
+**`技术选型->主题选择->修改配置->编辑文章->搭建图床->打包部署`**
