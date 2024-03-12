@@ -9,14 +9,11 @@ dependencies:
     specifier: ^2.3.1
     version: 2.3.1(vue@3.4.15)
   '@sugarat/theme':
-    specifier: ^0.2.24
-    version: 0.2.24(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15)
+    specifier: ^0.2.26
+    version: 0.2.26(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15)
   element-plus:
     specifier: ^2.5.3
     version: 2.6.0(vue@3.4.15)
-  oh-my-live2d:
-    specifier: ^0.9.0
-    version: 0.9.0
   vue:
     specifier: 3.4.15
     version: 3.4.15(typescript@5.4.2)
@@ -608,8 +605,8 @@ packages:
     dependencies:
       shiki: 1.1.7
 
-  /@sugarat/theme@0.2.24(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15):
-    resolution: {integrity: sha512-T5zY9oNVlfRK/+OXFAcJibEePiOSrvhEM6D6agogXT+LxkfOrVyueRKp9+xwd8b3JdB/be8CAYumoS+Z1nCwYg==}
+  /@sugarat/theme@0.2.26(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15):
+    resolution: {integrity: sha512-QPwmArqM4zNJtdef9XbM7SQTlEeLBMj9ovQ9j3ilSyK27LUj4+MJb1bA6mKrJfGKpn7W21ryCxI0NaCFhHsHhg==}
     dependencies:
       '@giscus/vue': 2.4.0(vue@3.4.15)
       '@mdit-vue/shared': 0.12.1
@@ -620,10 +617,11 @@ packages:
       gray-matter: 4.0.3
       markdown-it-task-checkbox: 1.0.6
       mermaid: 10.9.0
+      oh-my-live2d: 0.9.0
       swiper: 11.0.7
       vitepress-markdown-timeline: 1.2.1
       vitepress-plugin-mermaid: 2.0.13(mermaid@10.9.0)(vitepress@1.0.0-rc.45)
-      vitepress-plugin-pagefind: 0.2.12(typescript@5.4.2)
+      vitepress-plugin-pagefind: 0.2.13(typescript@5.4.2)
       vitepress-plugin-rss: 0.2.2
       vitepress-plugin-tabs: 0.2.0(vitepress@1.0.0-rc.45)(vue@3.4.15)
     transitivePeerDependencies:
@@ -2284,8 +2282,8 @@ packages:
       vitepress: 1.0.0-rc.45(@algolia/client-search@4.22.1)(sass@1.71.1)(search-insights@2.13.0)(typescript@5.4.2)
     dev: true
 
-  /vitepress-plugin-pagefind@0.2.12(typescript@5.4.2):
-    resolution: {integrity: sha512-1KAS5KVlXkdiL4PeaSHPYbKROCfmvnvCZ4ejFFnVa66Mf4oW+rsCkXxkyadGog4MBBYXWy3NbQrbeL5+zTFZQw==}
+  /vitepress-plugin-pagefind@0.2.13(typescript@5.4.2):
+    resolution: {integrity: sha512-dhuTKhbcWsit1Qb42mM8BrDpyN8j31dXLpy4gmMyqzAcPS2uIbOGM0v34yOxCkvuHfffcoaAOkqNN/yzNX4vrg==}
     dependencies:
       '@vue/shared': 3.4.21
       '@vueuse/core': 9.13.0(vue@3.4.15)

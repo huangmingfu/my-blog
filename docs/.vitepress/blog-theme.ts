@@ -36,8 +36,22 @@ const blogTheme = getThemeConfig({
     pageSize: 9,
     empty: '暂无精选内容'
   },
+  //看板娘
+  oml2d: {
+    models: [
+      {
+        path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
+        scale: 0.05,
+        position: [60, 100],
+        stageStyle: {
+          width: 250,
+          height: 370
+        }
+      }
+    ]
+  },
   // 页脚
-  footer:  [{
+  footer: [{
     version: false,
     copyright: {
       message: `Copyrights ©️ 2024-${new Date().getFullYear()} 丨 a无名`,
@@ -46,9 +60,9 @@ const blogTheme = getThemeConfig({
   },
   {
     version: false,
-    message:'基于vitepress+@sugarat/theme主题'
+    message: '基于vitepress+@sugarat/theme主题'
   },
-],
+  ],
 
 
 

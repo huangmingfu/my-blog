@@ -31,23 +31,5 @@ export default {
         }
         //音乐插件
         vitepressMusic(musicPlaylist)
-        //看板娘
-        if (!(import.meta as any).env.SSR) {
-            const { loadOml2d } = await import('oh-my-live2d');
-            loadOml2d({
-                sayHello: false,
-                models: [
-                    {
-                        path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
-                        scale: 0.05,
-                        position: [60, 100],
-                        stageStyle: {
-                            width: 250,
-                            height: 370
-                        }
-                    }
-                ],
-            });
-        }
     }
 }
