@@ -1,7 +1,4 @@
 ---
-# 用于设置在首页置顶展示的文章，从 1 开始，值越小越靠前
-top: 2
-# 用于设置在首页展示的 精选文章，值越大展示越靠前
 sticky: 999
 tag:
   - Technology
@@ -134,15 +131,15 @@ console.log(proxy.age); // 输出：获取属性：age  35
 **`组合式 API（Composition API）`**：这是 Vue 3 中引入的一种全新的 API，它允许开发者根据逻辑功能来组织代码，而不是按照固定的选项。它提供了 setup 函数，使得代码更加灵活和可复用，尤其适用于大型应用或者需要更高度组织的情况。  
 **`比较：`** Vue 2的选项 API一旦项目大起来功能越来越多，维护就变得困难。Vue 3的组合式 API很好的解决了这一问题，因为它可以将某一个功能模块放在一起。
 ### 生命周期
-> setup相当于vue2前的created周期：创建时（beforeCreate和created的结合）
-onBeforeMount：DOM即将挂载
-onMounted：DOM挂载完毕
-onBeforeUpdate：DOM即将更新
-onUpdated：DOM更新完毕
-onBeforeUnmount：即将销毁
-onUnmounted：销毁完毕
+> setup：相当于vue2前的created周期->创建时（beforeCreate和created的结合）  
+onBeforeMount：DOM即将挂载  
+onMounted：DOM挂载完毕  
+onBeforeUpdate：DOM即将更新  
+onUpdated：DOM更新完毕  
+onBeforeUnmount：即将销毁  
+onUnmounted：销毁完毕  
 
-> 路由加了缓存：
+> 添加了路由缓存后新增两个（当卸载和重新进去组件后只会执行这两个）：  
 onActivated 和 onDeactivated 
 
 ### v-for和v-if优先级

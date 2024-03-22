@@ -20,12 +20,15 @@ import { getDiffDate } from "../utils/tool";
   margin-top: -20px;
   padding-bottom: 20px;
   z-index: 1;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   &>span{
     white-space: nowrap;
   }
+}
+.blog-footer + .layout-bottom-extra-tips{
+  display: flex;
 }
 </style>
