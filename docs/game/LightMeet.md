@@ -1,6 +1,5 @@
 ---
-top: 2
-sticky: 997
+sticky: 990
 tag:
  - Game
 description: 身处伊甸，朝向光明...

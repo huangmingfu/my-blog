@@ -41,4 +41,24 @@ export const musicPlaylist = [
         author: '女版',
         file: 'https://friend-z.gitee.io/drawing-bed/audios/我走后-女版.mp3',
     },
+    {
+        name: '还是会想你',
+        author: '林达浪_h3R3',
+        file: 'https://friend-z.gitee.io/drawing-bed/audios/还是会想你-林达浪_h3R3.mp3',
+    },
+    {
+        name: '后继者',
+        author: '任然',
+        file: 'https://friend-z.gitee.io/drawing-bed/audios/后继者-任然.mp3',
+    },
+    {
+        name: '晚风遇见你',
+        author: '陆杰awr',
+        file: 'https://friend-z.gitee.io/drawing-bed/audios/晚风遇见你-陆杰awr.mp3',
+    },
+    {
+        name: '回到夏天',
+        author: '小田音乐社_傲七爷',
+        file: 'https://friend-z.gitee.io/drawing-bed/audios/回到夏天-小田音乐社_傲七爷.mp3',
+    },
 ]
