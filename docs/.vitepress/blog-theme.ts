@@ -38,10 +38,13 @@ const blogTheme = getThemeConfig({
   },
   //看板娘
   oml2d: {
+    mobileDisplay:true,
     models: [
       {
+        // path: 'live2d_models/girls-frontline/HK416-2/normal/model.json',
         path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
         scale: 0.05,
+        mobileScale:0.03,
         position: [60, 100],
         stageStyle: {
           width: 250,

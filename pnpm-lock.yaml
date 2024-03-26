@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.3.1
     version: 2.3.1(vue@3.4.15)
   '@sugarat/theme':
-    specifier: ^0.2.26
-    version: 0.2.26(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15)
+    specifier: ^0.2.29
+    version: 0.2.29(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15)
   element-plus:
     specifier: ^2.5.3
     version: 2.6.0(vue@3.4.15)
@@ -605,8 +605,8 @@ packages:
     dependencies:
       shiki: 1.1.7
 
-  /@sugarat/theme@0.2.26(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15):
-    resolution: {integrity: sha512-QPwmArqM4zNJtdef9XbM7SQTlEeLBMj9ovQ9j3ilSyK27LUj4+MJb1bA6mKrJfGKpn7W21ryCxI0NaCFhHsHhg==}
+  /@sugarat/theme@0.2.29(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15):
+    resolution: {integrity: sha512-z22h/tOTU93p6Epe0d6c8/MHa7XH6lmpfQuHqUwUz1SuFg969Sm5V21DG9TOJrO4fSDXBMrXuxuTUX4ujhWQ8A==}
     dependencies:
       '@giscus/vue': 2.4.0(vue@3.4.15)
       '@mdit-vue/shared': 0.12.1
@@ -617,7 +617,7 @@ packages:
       gray-matter: 4.0.3
       markdown-it-task-checkbox: 1.0.6
       mermaid: 10.9.0
-      oh-my-live2d: 0.9.0
+      oh-my-live2d: 0.13.0
       swiper: 11.0.7
       vitepress-markdown-timeline: 1.2.1
       vitepress-plugin-mermaid: 2.0.13(mermaid@10.9.0)(vitepress@1.0.0-rc.45)
@@ -2027,8 +2027,8 @@ packages:
     resolution: {integrity: sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==}
     dev: false
 
-  /oh-my-live2d@0.9.0:
-    resolution: {integrity: sha512-FGn88mWKKaVy1i6DT/D/sVjuMTgRBhWLp8TPEo/ECg07rhDevqKpwdQykS9jONXBi+Zh2acc7V4nwvr7Dwtr2A==}
+  /oh-my-live2d@0.13.0:
+    resolution: {integrity: sha512-H9Gti6tUeXbFvWuRx3NT3g/z/mIyNHeWpvmx0mz0zVWPdZ2gjSebg2EGPrUoGd2pJhG2On30v8wDiUVjk1KGXA==}
     dev: false
 
   /perfect-debounce@1.0.0:
