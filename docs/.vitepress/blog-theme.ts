@@ -41,16 +41,26 @@ const blogTheme = getThemeConfig({
     mobileDisplay:true,
     models: [
       {
-        // path: 'live2d_models/girls-frontline/HK416-2/normal/model.json',
+        // path: 'live2d_models/girls-frontline/HK416-2/normal/model.json',//本地测试浏览
         path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
         scale: 0.05,
         mobileScale:0.03,
-        position: [60, 100],
+        position: [50, 50],
         stageStyle: {
-          width: 250,
-          height: 370
+          height: 300
         }
-      }
+      },
+      {
+        // path: 'live2d_models/cat-black/model.json',//本地测试浏览
+        path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/cat-black/model.json',
+        scale: 0.08,
+        position: [50, 50],
+        mobileScale:0.04,
+        mobilePosition:[0,0],
+        stageStyle: {
+          height: 250
+        }
+      },
     ]
   },
   // 页脚
