@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.3.1
     version: 2.3.1(vue@3.4.15)
   '@sugarat/theme':
-    specifier: ^0.2.29
-    version: 0.2.29(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15)
+    specifier: ^0.3.2
+    version: 0.3.2(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15)
   element-plus:
     specifier: ^2.5.3
     version: 2.6.0(vue@3.4.15)
@@ -605,8 +605,8 @@ packages:
     dependencies:
       shiki: 1.1.7
 
-  /@sugarat/theme@0.2.29(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15):
-    resolution: {integrity: sha512-z22h/tOTU93p6Epe0d6c8/MHa7XH6lmpfQuHqUwUz1SuFg969Sm5V21DG9TOJrO4fSDXBMrXuxuTUX4ujhWQ8A==}
+  /@sugarat/theme@0.3.2(typescript@5.4.2)(vitepress@1.0.0-rc.45)(vue@3.4.15):
+    resolution: {integrity: sha512-nBiTCRwQk+4Q+efPaYx4SpnMFWN1SRrvQnwkEZQxn1elvAAh2e2eRX1FFQH4ToqO5pkZNe8v1DE11NLwfzDn8Q==}
     dependencies:
       '@giscus/vue': 2.4.0(vue@3.4.15)
       '@mdit-vue/shared': 0.12.1
@@ -617,11 +617,11 @@ packages:
       gray-matter: 4.0.3
       markdown-it-task-checkbox: 1.0.6
       mermaid: 10.9.0
-      oh-my-live2d: 0.13.0
+      oh-my-live2d: 0.15.2
       swiper: 11.0.7
       vitepress-markdown-timeline: 1.2.1
       vitepress-plugin-mermaid: 2.0.13(mermaid@10.9.0)(vitepress@1.0.0-rc.45)
-      vitepress-plugin-pagefind: 0.2.13(typescript@5.4.2)
+      vitepress-plugin-pagefind: 0.2.14(typescript@5.4.2)
       vitepress-plugin-rss: 0.2.2
       vitepress-plugin-tabs: 0.2.0(vitepress@1.0.0-rc.45)(vue@3.4.15)
     transitivePeerDependencies:
@@ -2027,8 +2027,8 @@ packages:
     resolution: {integrity: sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==}
     dev: false
 
-  /oh-my-live2d@0.13.0:
-    resolution: {integrity: sha512-H9Gti6tUeXbFvWuRx3NT3g/z/mIyNHeWpvmx0mz0zVWPdZ2gjSebg2EGPrUoGd2pJhG2On30v8wDiUVjk1KGXA==}
+  /oh-my-live2d@0.15.2:
+    resolution: {integrity: sha512-0+K48pgUrJOzo6ey16KiUCdGX/pWWogRY2JeOf4JnlYo9Rnd1RCfbzMQ4sX85aAMfavNfKfx9XGw6jEl4er9Xw==}
     dev: false
 
   /perfect-debounce@1.0.0:
@@ -2282,8 +2282,8 @@ packages:
       vitepress: 1.0.0-rc.45(@algolia/client-search@4.22.1)(sass@1.71.1)(search-insights@2.13.0)(typescript@5.4.2)
     dev: true
 
-  /vitepress-plugin-pagefind@0.2.13(typescript@5.4.2):
-    resolution: {integrity: sha512-dhuTKhbcWsit1Qb42mM8BrDpyN8j31dXLpy4gmMyqzAcPS2uIbOGM0v34yOxCkvuHfffcoaAOkqNN/yzNX4vrg==}
+  /vitepress-plugin-pagefind@0.2.14(typescript@5.4.2):
+    resolution: {integrity: sha512-xwx3JtINalPNyMs4NHvgIbzZXwa3wIjj2d5E6+OWbV3FQu9lorHT34mazaDkJxKVdVs8rKucOuxpYLkR9aTYPA==}
     dependencies:
       '@vue/shared': 3.4.21
       '@vueuse/core': 9.13.0(vue@3.4.15)
