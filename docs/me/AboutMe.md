@@ -47,7 +47,7 @@ sidebar: false
 :::
 <hr>  
 
-*  `GitHub:` - [@FrinedA](https://github.com/212149997)  
+*  `GitHub:` - [@FrinedA](https://github.com/huangmingfu)  
 *  `联系QQ:` - **212149997**
 *  `Email:` - **212149997@qq.com**
 *  `哔哩哔哩:` - [@像个小丑掩悲伤演欢](https://space.bilibili.com/37606570)  
