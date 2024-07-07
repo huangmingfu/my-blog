@@ -1,7 +1,7 @@
 # 无名的博客
 基于VitePress+@sugarat/theme主题
 
-地址：https://friend-z.gitee.io/my-blog
+地址：https://huangmingfu.github.io/my-blog
 
 ## Usage
 先安装 `pnpm`

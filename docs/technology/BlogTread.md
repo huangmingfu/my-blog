@@ -23,7 +23,7 @@ export default defineConfig({
 })
 
 ```
-![](https://friend-z.gitee.io/drawing-bed/images/technology/blog-tread-01.png)
+![](https://huangmingfu.github.io/drawing-bed/images/technology/blog-tread-01.png)
 
 ## 二、样式生效了，但是头像、网页fav图标不展示
 `原因：`**同样是路径匹配不上**

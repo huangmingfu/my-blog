@@ -42,7 +42,7 @@ const blogTheme = getThemeConfig({
     models: [
       {
         // path: 'live2d_models/girls-frontline/HK416-2/normal/model.json',//本地测试浏览
-        path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
+        path: 'https://huangmingfu.github.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
         scale: 0.05,
         mobileScale:0.03,
         position: [50, 50],
@@ -52,7 +52,7 @@ const blogTheme = getThemeConfig({
       },
       {
         // path: 'live2d_models/cat-black/model.json',//本地测试浏览
-        path: 'https://friend-z.gitee.io/drawing-bed/live2d_models/cat-black/model.json',
+        path: 'https://huangmingfu.github.io/drawing-bed/live2d_models/cat-black/model.json',
         scale: 0.08,
         position: [50, 50],
         mobileScale:0.04,

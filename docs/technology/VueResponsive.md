@@ -219,4 +219,4 @@ vue3 用 proxy 后直接监听整个对象，无论嵌套多少层都可以监�
 
 ### vue2 和 vue3 组件通信对比
 
-![](https://friend-z.gitee.io/drawing-bed/images/technology/blog-tread-02.png)
+![](https://huangmingfu.github.io/drawing-bed/images/technology/blog-tread-02.png)
