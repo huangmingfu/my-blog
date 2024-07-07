@@ -8,13 +8,13 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "deploy-old": "pnpm run build && git add . && git commit -m \"gitee自动部署\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages",
-    "deploy": "git add . && git commit -m \"gitee自动部署\" && git push -u origin master"
+    "deploy": "pnpm run build && git add . && git commit -m \"gitee自动部署\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@sugarat/theme": "^0.4.6",
     "element-plus": "^2.5.3",
+    "pagefind": "^1.1.0",
     "vue": "3.4.15"
   },
   "directories": {
