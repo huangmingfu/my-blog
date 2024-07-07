@@ -1,5 +1,5 @@
 ---
-sticky: 997
+sticky: 500
 tag:
  - Technology
 ---
