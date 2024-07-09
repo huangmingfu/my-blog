@@ -97,6 +97,24 @@ const { attr, sku_id, id, ...unset } = params;
 apiProductAddCard = (goodId, specs, amount, remarks) => {
   return axios.post('***', { goodId, specs, amount, remarks })
 }
+
+/**
+ * @Description 网络请求
+ * @param {object} options 配置对象
+ * @param {string} options.url 请求地址
+ * @param {'GET'|'POST'} options.method 请求方法
+ * @param {object} options.body
+ * @param {object} options.headers
+*/
+
+/**
+ * 获取指定范围内的随机整数
+ * @param {number} min 随机数的最小值
+ * @param {number} max 随机数的最大值
+ * @returns {number} 随机数
+ * @example 
+ * getRandom(1，10); //获取[1,10]之间的随机整数
+*/
 ```
 - `利用提前返回简化逻辑。`
 ```ts
