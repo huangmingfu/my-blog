@@ -18,6 +18,16 @@ tag:
 
 > **Vue 2.x 中监听数组的方式是通过重写数组的变异方法（mutator methods），比如 push()、pop()、shift()、unshift()、splice()、sort() 和 reverse() 等。Vue 在这些方法被调用时，会触发视图的更新。**
 
+#### 3.基本数据类型
+
+> **也就是放在 data 对象里**
+
+```ts
+data: {
+  message: "Hello, Vue!";
+}
+```
+
 #### 3.Object.defineProperty 的简单认识
 
 ```js
@@ -51,17 +61,67 @@ Object.defineProperty(obj, "name", {
 
 #### 1.对象
 
-> **Vue3 主要基于 ES6 的 Proxy 对象和 Reflect 对象，使用 Proxy 对象来监听对象的属性的变化。当对对象的属性进行修改、添加或删除时，Proxy 会捕获到这些变化并触发相应的更新。**
+> **Vue3 主要基于 ES6 的 Proxy 对象，使用 Proxy 对象来监听对象的属性的变化。当对对象的属性进行修改、添加或删除时，Proxy 会捕获到这些变化并触发相应的更新。**
 
 #### 2.数组
 
-> **同样地，Vue 3 使用 Proxy 对象来监听数组的变化，包括对数组的元素的修改、添加和删除。当对数组进行变化操作时，Proxy 会捕获到这些变化并触发相应的更新。**
+> **Proxy 也可以监听数组的变化，包括对数组的元素的修改、添加和删除。当对数组进行变化操作时，Proxy 会捕获到这些变化并触发相应的更新。**
 
 #### 3.基本数据类型
 
-> **类似于 Vue2，将基本类型包装在一个内部对象中，然后对这个对象进行代理**
+> **通过 class RefImpl 的 get 和 set 可以劫持到变化**
 
-#### 3.Proxy 和 Reflect 的简单认识
+```ts
+export function ref(value?: unknown) {
+  return createRef(value, false)
+}
+
+function createRef(rawValue: unknown, shallow: boolean) {
+  if (isRef(rawValue)) {
+    return rawValue
+  }
+  return new RefImpl(rawValue, shallow)
+}
+
+// RefImpl类
+constructor(
+  value: T,
+  public readonly __v_isShallow: boolean,
+) {
+  this._rawValue = __v_isShallow ? value : toRaw(value)// 保留原始值，用于比较新值和旧值，可以避免不必要的触发更新，从而提高性能
+  this._value = __v_isShallow ? value : toReactive(value)
+}
+
+export const toReactive = <T extends unknown>(value: T): T =>
+  isObject(value) ? reactive(value) : value // 如果是对象/数组类型，则使用reactive（reactive只能将引用类型变成响应式，而ref可以将引用类型和基本类型都变成响应式的原因所在）
+
+// 数组也是为true
+export const isObject = (val: unknown): val is Record<any, any> =>
+  val !== null && typeof val === 'object'
+```
+
+#### 3.原理总结
+> `被代理对象中的任意属性发生修改，都应该将用到了这个属性的各个函数（副作用函数）重新执行一遍，那么在此执行之前，就需要先为每一个属性都做好副作用函数的收集（依赖收集）`
+
+> effect: 回调函数，为被代理的对象加入依赖于它的处理函数  
+track：（依赖追踪/收集）在访问属性时收集依赖，记录哪些属性被哪些 effect 函数依赖。为每一个被代理的对象加入依赖它的函数(effect)  
+trigger：（依赖触发）在属性发生变化时，触发所有依赖于该属性的 effect 函数重新执行。 
+
+```ts
+get value() {
+  track(this,'value') // 为this对象做依赖收集
+  return this._value
+}
+
+set value(newVal) {
+  if (newVal !== this._value) {
+    this._value = convert(newVal)
+    trigger(this, 'value') // 触发掉 'value' 上的所有副作用函数
+  }
+}
+```
+
+#### 4.Proxy 和 Reflect 的简单认识
 
 ::: tip Proxy  
 const p = new Proxy(target, handler)  
@@ -72,8 +132,7 @@ handler:一个通常以函数作为属性的对象，各属性中的函数分别
 **注意：**  
 1.Proxy 可以代理对象、数组，不能代理基本数据类型，会报错。Proxy 常常搭配 Reflect 使用
 
-2.访问 proxyObj 的深层属性时，并不会触发 set。所以 proxy 如果想实现深度监听，也需要实现一个递归函数,
-使用 proxy 逐个对对象中的每个属性进行拦截
+2.访问 proxyObj 的深层属性时，并不会触发 set。所以 proxy 如果想实现深度监听，需要再次使用 proxy 对对象中的对象属性代理
 
 3.直接 Proxy 代理是懒代理：  
 &nbsp;&nbsp;&nbsp;&nbsp;set：只对第一层监听，只能拦截直接属性的赋值  
@@ -113,19 +172,24 @@ const proxyObj = new Proxy(target, handler);
 //执行了get
 console.log(proxyObj.name); //输出：获取属性：name (张三)
 
-// 执行了set
+// 只执行了set
 proxyObj.age = 35; //输出：设置属性：age 值：35
 
-//执行了get
+// 只执行了get，没有执行set，但是是修改成功的。
+// 只执行了 get 没有执行 set 是因为 family 属性本身也是一个对象，
+// 当访问 proxyObj.family 时，get 拦截器会被触发，
+// 因此，对 family 对象的修改并不会触发 proxyObj 的 set 拦截器。
+// 而属性的值还是被修改成功，这是因为 proxyObj.family 返回的不是代理对象，
+// 而是原始的 family 对象。因此，当你直接修改 family 对象的属性时，不会触发 proxyObj 的 set 拦截器
 proxyObj.family.father = "王五"; //输出：获取属性：family
 
-//执行了set
+// 只执行了set
 proxyObj.family = { a: "test" }; //输出：设置属性：family 值：{a:'test'}
 
-//执行了get
+// 只执行了get
 console.log(proxyObj.family.father); //输出：获取属性：family (李四)
 
-//执行了get
+// 只执行了get
 console.log(proxyObj.family.mother); //输出：获取属性：family (undefined)
 ```
 
@@ -194,28 +258,28 @@ proxy.age = 35; // 输出: 设置属性：age to 35
 
 > 以前事件是一个动态绑定，追踪变化，现在是缓存起来进行复用，以减少事件绑定的开销
 
-### 更好的Tree-shaking（如果没用到，就不会被打包进来）
+### 更好的 Tree-shaking（如果没用到，就不会被打包进来）
 
-> 在 Vue 2 中，Vue实例在项目中是单例的，很多api功能都被放在了this上，捆绑程序无法检测到该对象的哪些属性在代码中被使用到，而且由于 Vue 的源代码是使用 CommonJS 格式编写的，所以它不支持 tree shaking。这意味着即使你只使用了 Vue 的一部分功能，你的最终打包文件仍然会包含整个 Vue 库的代码。  
+> 在 Vue 2 中，Vue 实例在项目中是单例的，很多 api 功能都被放在了 this 上，捆绑程序无法检测到该对象的哪些属性在代码中被使用到，而且由于 Vue 的源代码是使用 CommonJS 格式编写的，所以它不支持 tree shaking。这意味着即使你只使用了 Vue 的一部分功能，你的最终打包文件仍然会包含整个 Vue 库的代码。
 
-> 在 Vue 3 中，Vue 的源代码被重写为使用 ES Modules 格式，这使得 Vue 3 支持 tree shaking。vue3将全局 API 进行分块，这意味着如果你只使用了 Vue 的一部分功能，那么你的最终打包文件只会包含你实际使用的那部分代码，未使用的代码会被移除。这可以帮助减小最终打包文件的大小，提高应用的加载性能。  
+> 在 Vue 3 中，Vue 的源代码被重写为使用 ES Modules 格式，这使得 Vue 3 支持 tree shaking。vue3 将全局 API 进行分块，这意味着如果你只使用了 Vue 的一部分功能，那么你的最终打包文件只会包含你实际使用的那部分代码，未使用的代码会被移除。这可以帮助减小最终打包文件的大小，提高应用的加载性能。
 
-> tree shaking的前提是所有的东西都必须用ES6 module的import来写，要充分利用 tree shaking，你还需要使用支持 tree shaking 的打包工具，如 Webpack 或 Rollup，并且需要正确配置它们。
+> tree shaking 的前提是所有的东西都必须用 ES6 module 的 import 来写，要充分利用 tree shaking，你还需要使用支持 tree shaking 的打包工具，如 Webpack 或 Rollup，并且需要正确配置它们。
 
-> 通过Tree shaking，Vue3给我们带来的好处是：  
-减少程序体积（更小）  
-减少程序执行时间（更快）  
-便于将来对程序架构进行优化（更友好）
+> 通过 Tree shaking，Vue3 给我们带来的好处是：  
+> 减少程序体积（更小）  
+> 减少程序执行时间（更快）  
+> 便于将来对程序架构进行优化（更友好）
 
 ### 响应式实现方式的升级
 
 > Vue2 用 object.defineProties 有以下几个缺点：  
-1.一次只能对一个属性进行监听，需要遍历来对所有属性监听；  
-2.在遇到一个对象的属性还是一个对象的情况下，需要递归监听，会消耗一些时间、性能；  
+> 1.一次只能对一个属性进行监听，需要遍历来对所有属性监听；  
+> 2.在遇到一个对象的属性还是一个对象的情况下，需要递归监听，会消耗一些时间、性能；  
 > 3.新增的对象属性监听不到，需要进行手动监听（vue2 通过$set 解决）；  
 > 4.对于数组通过 push、unshift 方法增加的元素，无法监听（vue2 通过改写数组方法解决）。
 
-vue3 用 proxy 后直接监听整个对象，无论嵌套多少层都可以监听到（proxy 的 get 方法），同样对数组适用,基本类型是类似Vue2包装在一个内部对象中，然后对这个对象进行代理（class的get和set）。
+vue3 用 proxy 后直接监听整个对象，无论嵌套多少层都可以监听到（proxy 的 get 方法），同样对数组适用,基本类型是类似 Vue2 包装在一个内部对象中，然后对这个对象进行代理（class 的 get 和 set）。
 
 ### vue2 和 vue3 组件通信对比
 
