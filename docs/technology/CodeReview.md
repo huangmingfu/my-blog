@@ -359,3 +359,66 @@ function request(){
 const AUTH_HEADER_KEY = 'authorization'
 const AUTH_KEY = 'token'
 ```
+
+## `函数/hooks功能单一性`
+```ts
+<!-- bad -->
+// 这是一个formItem的默认配置函数，但是在里面又修改elProps默认配置，项目里又有一个getDefaultElProps的函数
+// 导致这个函数功能混乱，应该保持函数功能单一性
+
+/**
+ * @param formItem
+ * @returns 包含默认配置的formItem
+ */
+export function getDefaultFormItem(formItem: FormGroupItem) {
+  const defaultFormItem = { ...formItem };
+
+  // elProps默认配置
+  defaultFormItem['elProps'] = getDefaultElProps(formItem.fragmentKey, formItem.elProps);
+
+  // 其他默认配置
+
+  if (defaultFormItem.fragmentKey === 'renderRangePicker') {
+    if (!isEmpty(defaultFormItem.rangePickerConfig)) {
+      // 带tab的renderRangePicker组件，默认占两个搜索项的宽度
+      defaultFormItem['colProps'] = defaultFormItem['colProps'] || {
+        xs: 24,
+        sm: 24,
+        md: 24,
+        lg: 16,
+        xl: 12,
+        xxl: 12,
+      };
+    } else {
+      defaultFormItem['elProps'] = {
+        style: {
+          width: '100%',
+        },
+        ...defaultFormItem['elProps'],
+      };
+    }
+  }
+
+  return defaultFormItem;
+}
+
+
+<!-- good -->
+// 在getDefaultElProps修改elprops；抽离一个方法出来
+/**
+ * @param formItem
+ * @returns 包含默认配置的formItem
+ */
+export function getDefaultFormItem(formItem: FormGroupItem) {
+  const defaultFormItem = { ...formItem };
+
+  // elProps默认配置
+  defaultFormItem['elProps'] = getDefaultElProps(defaultFormItem['fragmentKey'], defaultFormItem);
+
+  // colProps默认配置
+  defaultFormItem['colProps'] = getDEfaultColProps(defaultFormItem['fragmentKey'], defaultFormItem);
+
+  return defaultFormItem;
+}
+```
+
