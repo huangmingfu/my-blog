@@ -422,3 +422,8 @@ export function getDefaultFormItem(formItem: FormGroupItem) {
 }
 ```
 
+## `zIndex最好不要超过4位数`
+```ts
+ z-index: 999999;// bad
+ z-index: 1000;// good
+```
