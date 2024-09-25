@@ -92,7 +92,7 @@ router.push({
 
 ## `不建议开发者大批量的对一个对象执行多次delete操作，原因是连续的delete操作代码显得冗余。`
 
-```ts
+```typescript
 使用解构赋值替代对象多个属性的 delete 操作；
 使用 loadsh-es 提供的方法 unset/omit 等替代 delete 操作；
 
@@ -109,7 +109,7 @@ const { attr, sku_id, id, ...unset } = params;
 
 ## `函数注释。`
 
-```ts
+```typescript
 /**
  * @Description 加入购物车
  * @Author luochen_ya
@@ -145,7 +145,7 @@ apiProductAddCard = (goodId, specs, amount, remarks) => {
 
 ## `利用提前返回简化逻辑。`
 
-```ts
+```typescript
 // ❌ 错误做法
 function doSomething() {
   if (user) {
@@ -181,7 +181,7 @@ function formatHandle(e: InputEvent) { // value format }
 
 ## `回调函数代码简化`
 
-```ts
+```typescript
 <!-- bad -->
 articles.map(article => getArticle(article))
 
@@ -191,7 +191,7 @@ articles.map(getArticle)
 
 ## `try/catch的空白catch`
 
-```ts
+```typescript
 <!-- bad -->
 try {
   const info = await fetch('xxx')
@@ -212,7 +212,7 @@ try {
 
 ## `函数参数一堆`
 
-```ts
+```typescript
 <!-- bad -->
 // 造成心智负担，不仅需要知道每个参数，还需要知道每个参数的位置
 const getUserInfo = (
@@ -230,7 +230,7 @@ const getUserInfo = (options)=>{
 
 ## `命名多余`
 
-```ts
+```typescript
 <!-- bad -->
 class User{
   userName;
@@ -252,7 +252,7 @@ class User{
 
 ## `switch/case分支过多`
 
-```ts
+```typescript
 <!-- bad -->
 // 后面越加越多分支就越来越多
 switch (type){
@@ -274,7 +274,7 @@ return state + (ins[type] || 0)
 
 ## `无法阅读的条件`
 
-```ts
+```typescript
 <!-- bad -->
 // 一大堆条件，不知道是干嘛的
 if(
@@ -302,7 +302,7 @@ if(isGameOver()){
 ```
 
 ## `异常处理和成功的处理耦合`
-```ts
+```typescript
 <!-- bad -->
 // 错误处理和正确处理耦合在一起
 if(isLoggedIn()){
@@ -338,7 +338,7 @@ if(!isPostDoubleChecked()){
 ```
 
 ## `隐式耦合`
-```ts
+```typescript
 <!-- bad -->
 // 写死字符串在里面，当authorization或token变化，两个函数都要改动
 function response(res){
@@ -361,7 +361,7 @@ const AUTH_KEY = 'token'
 ```
 
 ## `函数/hooks功能单一性`
-```ts
+```typescript
 <!-- bad -->
 // 这是一个formItem的默认配置函数，但是在里面又修改elProps默认配置，项目里又有一个getDefaultElProps的函数
 // 导致这个函数功能混乱，应该保持函数功能单一性
@@ -423,7 +423,27 @@ export function getDefaultFormItem(formItem: FormGroupItem) {
 ```
 
 ## `zIndex最好不要超过4位数`
-```ts
+```typescript
  z-index: 999999;// bad
  z-index: 1000;// good
+```
+
+## `展示组件和容器组件（表单抽离降耦）`
+```typescript
+表单功能涉及到：新增、编辑、查看（大部分是相同的。些许不同，如标题/提交按钮文字等）
+
+<!-- bad -->
+全部合并为一个组件，里面通过一个变量type判断，if/else。
+导致耦合，编辑出现问题，需要到处找编辑的代码，改的时候也需要非常小心，因为可能会动到其他的
+
+<!-- good -->
+展示组件和容器组件（经典普遍成熟的开发模式）：
+
+展示组件（只有界面逻辑，只管界面样式等）：只负责展示，不负责逻辑处理，只负责接收props，抛出emit事件
+容器组件（调用“展示组件”）：
+
+如：
+新增：调用展示组件
+编辑：调用展示组件
+<product-form :formData="formData" text="新增商品" :loading="loading" @submit="onSubmit" />
 ```
