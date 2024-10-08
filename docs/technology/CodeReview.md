@@ -362,6 +362,8 @@ const AUTH_KEY = 'token'
 
 ## `函数/hooks功能单一性`
 ```typescript
+让函数功能只对一件事负责
+
 <!-- bad -->
 // 这是一个formItem的默认配置函数，但是在里面又修改elProps默认配置，项目里又有一个getDefaultElProps的函数
 // 导致这个函数功能混乱，应该保持函数功能单一性
@@ -421,6 +423,27 @@ export function getDefaultFormItem(formItem: FormGroupItem) {
   return defaultFormItem;
 }
 ```
+
+## `使用纯函数避免副作用`
+```typescript
+编写函数时，最好避免修改该函数之外的任何变量。
+
+<!-- bad -->
+let items = 5;
+function changeNumber(number) {
+  items = number + 3;
+  return items;
+}
+changeNumber(5);
+
+
+<!-- good -->
+function addThree(number) {
+  return number + 3;
+}
+这里我们去掉了外部变量的依赖，让函数返回一个新值。它的功能现在是完全独立的，因此它的行为现在是完全可预测的。
+```
+
 
 ## `zIndex最好不要超过4位数`
 ```typescript
