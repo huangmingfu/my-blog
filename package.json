@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@sugarat/theme": "^0.4.6",
-    "element-plus": "^2.5.3",
-    "pagefind": "^1.1.0",
+    "@sugarat/theme": "^0.5.1",
+    "element-plus": "^2.8.6",
+    "pagefind": "^1.1.1",
     "vue": "3.4.15"
   },
   "directories": {
@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "busuanzi.pure.js": "^1.0.3",
-    "sass": "^1.71.1",
-    "typescript": "^5.1.6",
+    "sass": "^1.80.4",
+    "typescript": "^5.6.3",
     "vitepress": "1.0.0-rc.45",
     "vitepress-plugin-music": "^0.0.9"
   }
