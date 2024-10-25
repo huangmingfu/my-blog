@@ -28,21 +28,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16' # 确保 Node.js 版本与你的项目兼容
-          cache: 'pnpm'
-
-      # 安装 pnpm
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 8 # 安装 pnpm 的版本
+          cache: 'npm'
 
       # 安装依赖
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       # 构建 VitePress 项目
       - name: Build VitePress site
-        run: pnpm run build
+        run: npm run build
 
       # 配置 GitHub Pages
       - name: Setup Pages
