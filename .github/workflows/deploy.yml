@@ -24,17 +24,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 安装 pnpm
+      # 安装 Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # 或你项目所需的Node.js版本
+          node-version: '16' # 确保和你的项目 Node.js 版本匹配
           cache: 'pnpm'
 
+      # 安装 pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 安装依赖
       - name: Install dependencies
         run: pnpm install
 
-      # 运行 pnpm build
+      # 运行构建命令
       - name: Build project
         run: pnpm run build
 
