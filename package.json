@@ -8,7 +8,6 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "deploy": "rm -rf docs/.vitepress/dist && pnpm run build && git add . && git commit -m \"update\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages",
     "push": "git add . && git commit -m \"update\" && git push -u origin master"
   },
   "dependencies": {

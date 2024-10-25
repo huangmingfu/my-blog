@@ -43,7 +43,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/212149997'
+        link: 'https://github.com/huangmingfu'
       }
     ]
   },

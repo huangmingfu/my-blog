@@ -71,7 +71,7 @@ head: [
 ### 搭建自动gitee推送
 ::: tip
 > `在package.json的scripts里添加：
-"deploy": "pnpm run build && git add . && git commit -m \"gitee 自动推送\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages"`
+"deploy": "rm -rf docs/.vitepress/dist && pnpm run build && git add . && git commit -m \"gitee 自动推送\" && git push -u origin master && git subtree push --prefix docs/.vitepress/dist origin gh-pages"`
 >   
 > **解释**  
 > git subtree push --prefix docs/.vitepress/dist origin gh-pages: 
