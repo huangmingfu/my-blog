@@ -1,55 +1,34 @@
-# 工作流的名称
-name: Build and deploy 
-# 从工作流生成的工作流运行的名称
-run-name: Deploy by @${{ github.actor }}  
-# 触发工作流的事件
+name: Deploy Pages
+
 on:
   push:
-    branches: [ master ] # 当 master 分支有新的推送时，此工作流会被启动。
-  workflow_dispatch: # 或者手动触发工作流时，此工作流会被启动。
-# 当前流程要执行的任务
+    branches:
+      - master # 这里只配置了master分支，所以只有推送master分支才会触发以下任务
+
 jobs:
-  build:
-    # 这部分指定了作业将在 ubuntu-latest 环境下运行。
+  pages:
     runs-on: ubuntu-latest
-	# 每个任务下的运行步骤，短横杠 - 表示一个步骤，从上至下依次执行。
+    permissions:
+      contents: write
     steps:
-      - name: checkout # 检出代码
-      - uses: actions/checkout@v2 # 使用 actions/checkout action 检出代码到工作空间。
-      
-	  # 这一步安装 Node.js v16。
-      - name: Use Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.15.0
+        uses: actions/setup-node@v2
         with:
-          node-version: '16'
-            
-     # 缓存 npm node_modules
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        id: npm-cache
+          node-version: "16.x"
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
         with:
-          path: |
-     		~/.npm
-      		**/node_modules
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/pnpm-lock.json') }}
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
           restore-keys: |
-            ${{ runner.os }}-npm-cache-
-
-      # 安装依赖 npm
-      - name: Install dependencies
-        # 如果没有命中缓存才执行 npm install
-        if: steps.npm-cache.outputs['restore-keys'] == ''
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
         run: npm install
-
-     # 运行构建脚本
-      - name: Run Build Script
+      - name: Build
         run: npm run build
-        
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-        # env:
-          # 部署到 FrontPages 分支
-          BRANCH: gh-pages
-          # 部署目录为 vitepress 的默认输出目录
-          FOLDER: docs/.vitepress/dist
+          github_token: ${{ secrets.GITEE_TOKEN }}
+          publish_dir: docs/.vitepress/dist
