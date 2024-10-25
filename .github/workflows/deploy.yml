@@ -1,8 +1,12 @@
-name: Deploy static content to Pages
+name: Deploy VitePress to GitHub Pages
 
 on:
+  # 当代码推送到 master 分支时自动触发
   push:
-    branches: ["master"]
+    branches:
+      - master
+
+  # 允许在 GitHub Actions 页面手动触发部署
   workflow_dispatch:
 
 permissions:
@@ -10,48 +14,47 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # 检出代码
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # 安装 Node.js
+      # 安装 Node.js 环境
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # 确保和你的项目 Node.js 版本匹配
+          node-version: '16' # 确保 Node.js 版本与你的项目兼容
           cache: 'pnpm'
 
       # 安装 pnpm
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 8 # 安装 pnpm 的版本
 
       # 安装依赖
       - name: Install dependencies
         run: pnpm install
 
-      # 运行构建命令
-      - name: Build project
+      # 构建 VitePress 项目
+      - name: Build VitePress site
         run: pnpm run build
 
+      # 配置 GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # 上传打包后的静态文件
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 上传打包后的 dist 目录
-          path: 'docs/.vitepress/dist'
+          path: docs/.vitepress/dist # 打包后文件的路径
 
+      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
