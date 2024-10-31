@@ -8,7 +8,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
-    "push": "git add . && git commit -m \"update\" && git push -u origin master"
+    "push": "sh scripts/push.sh"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
