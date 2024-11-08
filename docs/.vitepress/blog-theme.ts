@@ -29,22 +29,22 @@ const blogTheme = getThemeConfig({
   themeColor: 'el-blue',
   // 文章默认作者
   author: 'a无名',
-  //右侧精选文章栏目
+  // 右侧精选文章栏目
   hotArticle: {
     title: '🔥 精选文章',
     nextText: '换一组',
     pageSize: 9,
     empty: '暂无精选内容'
   },
-  //看板娘
+  // 看板娘
   oml2d: {
-    mobileDisplay:true,
+    mobileDisplay: true,
     models: [
       {
         // path: 'live2d_models/girls-frontline/HK416-2/normal/model.json',//本地测试浏览
         path: 'https://huangmingfu.github.io/drawing-bed/live2d_models/girls-frontline/HK416-2/normal/model.json',
         scale: 0.05,
-        mobileScale:0.03,
+        mobileScale: 0.03,
         position: [50, 50],
         stageStyle: {
           height: 300
@@ -55,11 +55,149 @@ const blogTheme = getThemeConfig({
         path: 'https://huangmingfu.github.io/drawing-bed/live2d_models/cat-black/model.json',
         scale: 0.08,
         position: [50, 50],
-        mobileScale:0.04,
-        mobilePosition:[0,0],
+        mobileScale: 0.04,
+        mobilePosition: [0, 0],
         stageStyle: {
           height: 250
         }
+      },
+    ]
+  },
+  // 个人作品展示
+  works: {
+    title: '',
+    list: [
+      {
+        title: 'my-blog',
+        description: '👆 a无名的博客，一个基于vitepress+@sugarat/theme主题的博客网站',
+        time: {
+          start: '2024/03/08'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'my-blog',
+          branch: 'master',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/my-blog',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'react-ts-template',
+        description: '👆 一套基于react18、ts、vite5的项目模板，帮助快速搭建react项目',
+        time: {
+          start: '2024/10/25'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'react-ts-template',
+          branch: 'master',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/react-ts-template',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'vue3-ts-template',
+        description: '👆 一套基于vue3、ts、vite5的项目模板，帮助快速搭建vue3项目',
+        time: {
+          start: '2024/04/07'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'vue3-ts-template',
+          branch: 'master',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/vue3-ts-template',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'vue3-js-template',
+        description: '👆 一套基于vue3、js、vite5的项目模板，帮助快速搭建vue3、js项目',
+        time: {
+          start: '2023/10/09'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'vue3-js-template',
+          branch: 'master',
+        },
+        url: 'https://github.com/huangmingfu/vue3-js-template',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'drawing-bed',
+        description: '👆 my-blog 的个人图床',
+        time: {
+          start: '2024/03/08'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'drawing-bed',
+          branch: 'master',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/drawing-bed',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'marathon-fitness-panoramic-game',
+        description: '👆 马拉松健身全景游戏（h5横屏项目）',
+        time: {
+          start: '2024/04/11'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'marathon-fitness-panoramic-game',
+          branch: 'master',
+        },
+        url: 'https://github.com/huangmingfu/marathon-fitness-panoramic-game',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'bird-tunnel',
+        description: '👆 基于CocosCreator3.8.1的2d小游戏：《小鸟穿隧道》',
+        time: {
+          start: '2023/11/08'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'bird-tunnel',
+          branch: 'master',
+        },
+        url: 'https://github.com/huangmingfu/bird-tunnel',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+      },
+      {
+        title: 'aircraft-battle',
+        description: '👆 基于CocosCreator3.8的2d小游戏：《飞机大战》',
+        time: {
+          start: '2023/10/10'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'aircraft-battle',
+          branch: 'master',
+        },
+        url: 'https://github.com/huangmingfu/aircraft-battle',
+        cover:
+          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
       },
     ]
   },

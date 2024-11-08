@@ -4,16 +4,18 @@ top: 1
 # 用于设置在首页展示的 精选文章，值越大展示越靠前
 # sticky: 991
 tag:
- - Me
+  - Me
 sidebar: false
 ---
+
 # 🥰 关于我
 
-::: danger 介绍：
-**I'm ming ，是一名奋斗在职场的小码农，主前端辅后端，建立个人博客的初衷是希望拥有一个能够有一个随时展示自己，同时记录各种技术文章，总结工作学习内容和分享个人经历的个人小笔记；网站主内容覆盖关于前端，后端，服务器相关技术文章，同时也会更新发布一些动漫，游戏等偏个人兴趣爱好的文章。**
-:::
+## 介绍：
 
-::: warning 主要涉及技术
+**I'm ming ，是一名奋斗在职场的小码农，主前端辅后端，建立个人博客的初衷是希望拥有一个能够有一个随时展示自己，同时记录各种技术文章，总结工作学习内容和分享个人经历的个人小笔记；网站主内容覆盖关于前端，后端，服务器相关技术文章，同时也会更新发布一些动漫，游戏等偏个人兴趣爱好的文章。**
+
+## 主要涉及技术
+
 <p>
   <img src="https://img.shields.io/badge/-JavaScript-A9A9A9?logo=JavaScript&logoColor=F7DF1E" alt="JavaScript" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-HTML5-A9A9A9?logo=HTML5&logoColor=E34F26" alt="HTML5" style="display: inline-block;" />&nbsp;
@@ -33,20 +35,55 @@ sidebar: false
   <img src="https://img.shields.io/badge/-Tailwind%20CSS-FFF?logo=Tailwind-CSS&logoColor=06B6D4" alt="Tailwind CSS" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-Less-D3D3D3?logo=Less&logoColor=1D365D" alt="Less" style="display: inline-block;" />&nbsp;
 </p>
-:::
-<!-- **HTML、CSS、JS、TS、**  
-**React、Vue、小程序**  
-**PHP、Nodejs** -->
-::: tip ...
-<em>很惭愧😞</em>
-  
-<em>只做了一点微小的工作🖥︎</em>  
-  
-<em>谢谢大家的光临🥹</em>  
-:::
-<hr>  
 
-*  `GitHub:` - [@FrinedA](https://github.com/huangmingfu)  
-*  `联系QQ:` - **212149997**
-*  `Email:` - **212149997@qq.com**
-*  `哔哩哔哩:` - [@像个小丑掩悲伤演欢](https://space.bilibili.com/37606570)  
+## 个人开源作品
+
+<UserWorksPage />
+
+::: tip ...
+<em>很惭愧 😞</em>
+
+<em>只做了一点微小的工作 🖥︎</em>
+
+<em>谢谢大家的光临 🥰</em>  
+:::
+
+<hr>
+
+## 联系我
+
+- `GitHub:` - [@FrinedA](https://github.com/huangmingfu)
+- `联系QQ:` - **212149997**
+- `Email:` - **212149997@qq.com**
+- `哔哩哔哩:` - [@像个小丑掩悲伤演欢](https://space.bilibili.com/37606570)
+
+<style scoped lang="scss">
+  :deep(.user-works-page){
+    margin-top:unset;
+    padding-top:unset;
+
+   .aside-container{
+      display: none;
+    }
+    .works{
+      width: 100%;
+      .work{
+        margin-top:25px;
+        &:nth-child(2){
+          margin-top:unset;
+        }
+        .description{
+          color:#00C1B6;
+          font-weight: 600;
+        }
+        /* 年份标题 */
+        /* & > h2{
+          display: none;
+        } */
+      }
+    }
+    .title{
+      margin-top:unset;
+    }
+  }
+</style>
