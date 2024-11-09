@@ -82,8 +82,7 @@ const blogTheme = getThemeConfig({
           text: '积极维护中'
         },
         url: 'https://github.com/huangmingfu/my-blog',
-        cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/technology/my-blog-01.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/my-blog-02.png']
       },
       {
         title: 'react-ts-template',
@@ -100,8 +99,7 @@ const blogTheme = getThemeConfig({
           text: '积极维护中'
         },
         url: 'https://github.com/huangmingfu/react-ts-template',
-        cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/technology/react-ts-template-01.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/react-ts-template-02.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/react-ts-template-03.png']
       },
       {
         title: 'vue3-ts-template',
@@ -119,7 +117,7 @@ const blogTheme = getThemeConfig({
         },
         url: 'https://github.com/huangmingfu/vue3-ts-template',
         cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+          'https://huangmingfu.github.io/drawing-bed/images/technology/vue3-ts-template-01.png'
       },
       {
         title: 'vue3-js-template',
@@ -134,7 +132,7 @@ const blogTheme = getThemeConfig({
         },
         url: 'https://github.com/huangmingfu/vue3-js-template',
         cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+          'https://huangmingfu.github.io/drawing-bed/images/technology/vue3-js-template-01.png'
       },
       {
         title: 'drawing-bed',
@@ -152,7 +150,7 @@ const blogTheme = getThemeConfig({
         },
         url: 'https://github.com/huangmingfu/drawing-bed',
         cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+          'https://huangmingfu.github.io/drawing-bed/images/technology/drawing-bed-01.png'
       },
       {
         title: 'marathon-fitness-panoramic-game',
@@ -166,8 +164,7 @@ const blogTheme = getThemeConfig({
           branch: 'master',
         },
         url: 'https://github.com/huangmingfu/marathon-fitness-panoramic-game',
-        cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+        cover: ['https://github.com/huangmingfu/marathon-fitness-panoramic-game-01.png', 'https://github.com/huangmingfu/marathon-fitness-panoramic-game-02.png', 'https://github.com/huangmingfu/marathon-fitness-panoramic-game-03.png']
       },
       {
         title: 'bird-tunnel',
@@ -181,8 +178,7 @@ const blogTheme = getThemeConfig({
           branch: 'master',
         },
         url: 'https://github.com/huangmingfu/bird-tunnel',
-        cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+        cover: ['https://github.com/huangmingfu/bird-tunnel-01.png', 'https://github.com/huangmingfu/bird-tunnel-02.png']
       },
       {
         title: 'aircraft-battle',
@@ -196,8 +192,7 @@ const blogTheme = getThemeConfig({
           branch: 'master',
         },
         url: 'https://github.com/huangmingfu/aircraft-battle',
-        cover:
-          'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303' // 待更换
+        cover: ['https://github.com/huangmingfu/aircraft-battle-01.png', 'https://github.com/huangmingfu/aircraft-battle-02.png', 'https://github.com/huangmingfu/aircraft-battle-03.png']
       },
     ]
   },
