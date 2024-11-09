@@ -36,7 +36,7 @@ sidebar: false
   <img src="https://img.shields.io/badge/-Less-D3D3D3?logo=Less&logoColor=1D365D" alt="Less" style="display: inline-block;" />&nbsp;
 </p>
 
-## 个人开源作品
+## 个人作品
 
 <UserWorksPage />
 
