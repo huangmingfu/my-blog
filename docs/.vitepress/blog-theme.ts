@@ -164,7 +164,7 @@ const blogTheme = getThemeConfig({
           branch: 'master',
         },
         url: 'https://github.com/huangmingfu/marathon-fitness-panoramic-game',
-        cover: ['https://github.com/huangmingfu/marathon-fitness-panoramic-game-01.png', 'https://github.com/huangmingfu/marathon-fitness-panoramic-game-02.png', 'https://github.com/huangmingfu/marathon-fitness-panoramic-game-03.png']
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/technology/marathon-fitness-panoramic-game-01.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/marathon-fitness-panoramic-game-02.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/marathon-fitness-panoramic-game-03.png']
       },
       {
         title: 'bird-tunnel',
@@ -178,7 +178,7 @@ const blogTheme = getThemeConfig({
           branch: 'master',
         },
         url: 'https://github.com/huangmingfu/bird-tunnel',
-        cover: ['https://github.com/huangmingfu/bird-tunnel-01.png', 'https://github.com/huangmingfu/bird-tunnel-02.png']
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/technology/bird-tunnel-01.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/bird-tunnel-02.png']
       },
       {
         title: 'aircraft-battle',
@@ -192,7 +192,7 @@ const blogTheme = getThemeConfig({
           branch: 'master',
         },
         url: 'https://github.com/huangmingfu/aircraft-battle',
-        cover: ['https://github.com/huangmingfu/aircraft-battle-01.png', 'https://github.com/huangmingfu/aircraft-battle-02.png', 'https://github.com/huangmingfu/aircraft-battle-03.png']
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/technology/aircraft-battle-01.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/aircraft-battle-02.png', 'https://huangmingfu.github.io/drawing-bed/images/technology/aircraft-battle-03.png']
       },
     ]
   },
