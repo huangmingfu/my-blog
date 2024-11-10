@@ -22,6 +22,11 @@ sidebar: false
   <img src="https://img.shields.io/badge/-CSS3-A9A9A9?logo=CSS3&logoColor=1572B6" alt="CSS3" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-TypeScript-C0C0C0?logo=TypeScript&logoColor=3178C6" alt="TypeScript" style="display: inline-block;" />&nbsp;
     <img src="https://img.shields.io/badge/-Vue3-C0C0C0?logo=Vue.js&logoColor=4FC08D" alt="Vue3" style="display: inline-block;" />&nbsp;
+    <img src="https://img.shields.io/badge/-Vue_Router-35495E?logo=vue-router&logoColor=white" alt="Vue Router" style="display: inline-block;" />&nbsp;
+    <img src="https://img.shields.io/badge/-Nuxt.js-00C58E?logo=nuxt.js&logoColor=white" alt="Nuxt.js" style="display: inline-block;" />&nbsp;
+    <img src="https://img.shields.io/badge/-Element_UI-E6A23C?logo=element&logoColor=white" alt="Element UI" style="display: inline-block;" />&nbsp;
+    <img src="https://img.shields.io/badge/-React-20232A?logo=react&logoColor=61DAFB" alt="React" style="display: inline-block;" />&nbsp;
+    <img src="https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white" alt="React Router" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-Ant%20Design-C0C0C0?logo=Ant-Design&logoColor=0170FE" alt="Ant Design" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-Node.js-D3D3D3?logo=Node.js&logoColor=339933" alt="Node.js" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-Vite-D3D3D3?logo=Vite&logoColor=646CFF" alt="Vite" style="display: inline-block;" />&nbsp;
