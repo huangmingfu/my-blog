@@ -42,7 +42,7 @@ tag:
 
 ## `组件应用时props参数：按照 ref、class、传入、传出 顺序书写。`
 
-```vue
+```html
 <my-components
   ref="myComponents"
   class="home-my-components"
@@ -84,7 +84,7 @@ router.push({
 
 ## `Vue官方提供了4-5种class绑定方式，建议统一使用一种，以数组的方式动态绑定类名。`
 
-```vue
+```html
 <div :class="['title-text', active ? 'active' : '', errorClass]">
   <!-- ... -->
 </div>
