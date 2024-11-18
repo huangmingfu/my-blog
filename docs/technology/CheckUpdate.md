@@ -190,9 +190,9 @@ setupApp();
 
 ## 其他方案
 
-> API接口请求version版本控制：
+> 1. API接口请求version版本控制：
 > 我们还可以通过请求后端API，比较version来实现版本控制。前端定期请求一个API接口，获取当前的版本信息，如果发现版本有更新，则提示用户。
-> 缺点：每次构建部署需要手动更新版本号
+> （缺点：每次需要commit一个新版本号比较麻烦）
 ```ts
 /** 简单示例代码 */
 interface VersionInfo {
@@ -235,6 +235,8 @@ export function setupVersionCheck() {
   }
 }
 ```
+> 2. 比较script标签的hash值文件指纹：[详见](https://juejin.cn/post/7185451392994115645)
+
 
 ## 结论
 
