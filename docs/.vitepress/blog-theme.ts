@@ -68,6 +68,23 @@ const blogTheme = getThemeConfig({
     title: '',
     list: [
       {
+        title: 'vue3-turbo-component-lib-template',
+        description: '👆 一个基于 Turborepo + Vue 3.5 + TypeScript 的现代化组件库模板',
+        time: {
+          start: '2024/11/22'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'vue3-turbo-component-lib-template',
+          branch: 'master',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/vue3-turbo-component-lib-template',
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241135445.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241135191.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241136925.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241136535.png']
+      },
+      {
         title: 'my-blog',
         description: '👆 a无名的博客，一个基于vitepress+@sugarat/theme主题的博客网站',
         time: {
