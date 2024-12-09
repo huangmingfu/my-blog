@@ -470,3 +470,34 @@ function addThree(number) {
 编辑：调用展示组件
 <product-form :formData="formData" text="新增商品" :loading="loading" @submit="onSubmit" />
 ```
+
+## `魔法值的问题`
+> 魔法值，也叫做魔法数值、魔法数字，通常是指在代码编写时莫名出现的数字， 无法直接判断数值代表的含义，必须通过联系代码上下文分析才可以明白， 严重降低了代码的可读性。除数字之外，代码中作为key值的常量字符串也被认为是魔法值， 尽管其表示含义比数值较为清晰，但是仍然会产生不规范问题。  
+```typescript
+<!-- bad -->
+if(flag === '5'){
+  .......
+}
+
+if (businessType === 101){
+  .......
+}
+
+<!-- good -->
+const BusinessTypeEnum = {
+  SYSTEM: 0, // 系统
+  CRM: 1, // CRM
+  JXC: 2, // JXC
+  UNKNOWN: 404, // 未知对象类型
+  CUSTOMER_MANAGEMENT: 100, // 客户管理
+  CUSTOMER: 101, // 客户
+  CUSTOMER_FOCUS: 102, // 重点客户
+  CUSTOMER_DEAL: 103, // 成交客户
+  CUSTOMER_FOLLOW: 104, // 跟进客户
+  CUSTOMER_PUBLIC: 105 // 客户公海池
+}
+
+if (businessType === BusinessTypeEnum.CUSTOMER){
+  .......
+}
+```
