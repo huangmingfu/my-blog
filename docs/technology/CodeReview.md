@@ -23,6 +23,25 @@ tag:
 ## `provide/inject 是在解决多级透传问题的时候才能使用，而且使用要特别谨慎。因为它会将逻辑提升到组件树的更高层次来处理逻辑，会使高层组件变得更复杂。并且对于某些组件来说，不利于复用。对于全局状态的使用，都要谨慎。`
 
 ## `可选链在必要的情况下才能使用，禁止滥用；使用可选链简化代码。`
+> ? 可选链操作符，虽然好用，但也不能滥用。item?.name 会被编译成 item === null || item === void 0 ? void 0 : item.name，滥用会导致编译后的代码size增大。
+```ts
+// bad
+const handleData = (data)=> {
+  const { userList } = data;
+  const newList = userList.map((item)=> `用户id是${item?.id}，用户名字是${item?.name},用户年龄是${item?.age}岁了`);
+}
+handleData({userList: [null]})
+
+// good
+const handleData = (data)=> {
+  const { userList } = data;
+  const newList = userList.map((item)=> {
+    const { id, name, age } = item || {};
+    return `用户id是${id}，用户名字是${name},用户年龄是${age}岁了`
+  });
+}
+handleData({userList: [null]})
+```
 
 ## `内联样式不超过两个；模版不建议写复杂判断，需要放在逻辑中维护。`
 
