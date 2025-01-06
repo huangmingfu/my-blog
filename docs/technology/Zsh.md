@@ -7,7 +7,7 @@ tag:
 # 效率终端：zsh + oh-my-zsh + agnoster（或powerlevel10k等其他主题）
 
 ## 介绍
-传统的 bash 功能比较简陋，且不美观。Oh My Zsh（github已有175k star） 是基于 zsh 命令行的一个扩展工具集，提供了丰富的扩展功能，提升你的终端操作体验。（著名的[`Anthony Fu`](https://github.com/antfu/dotfiles/blob/main/.zshrc)也是使用的zsh终端哦~）
+传统的 bash 功能比较简陋，且不美观。Oh My Zsh（github已有`175k star`） 是基于 zsh 命令行的一个扩展工具集，提供了丰富的扩展功能，提升你的终端操作体验。（著名的[`Anthony Fu`](https://github.com/antfu/dotfiles/blob/main/.zshrc)也是使用的zsh终端哦~）  
 本文将介绍 windows 下如何安装和配置 zsh 终端。mac 等其他系统安装比较简单，可以自行百度。
 
 ## 1. 安装zsh
@@ -15,9 +15,9 @@ tag:
 
 a. 下载后，需要解压两次，`.pkg.tar.zst文件`解压器（安装后右键解压）：https://github.com/mcmilk/7-Zip-zstd/releases
 
-b. 移动解压后的文件到 git 安装目录，如：D:\software\Git
+b. 移动解压后的文件到`git 安装目录`，如：D:\software\Git
 
-c. 打开 Git Bash 终端，输入 zsh 命令，然后直接输入 0 结束并生成 .zshrc 配置文件即可。（也可以输入1进行初始配置，然后输入0退出生成.zshrc文件）
+c. 打开 Git Bash 终端，`输入 zsh 命令`，然后直接输入 0 结束并`生成 .zshrc 配置文件`即可。（也可以输入1进行初始配置，然后输入0退出生成.zshrc文件）
 
 ## 2. 安装oh-my-zsh
 git bash执行下面命令，出现oh-my-zsh则安装成功。
@@ -254,6 +254,6 @@ prompt_agnoster_setup "$@"
 </details>
 
 ## 参考链接
-[zsh 安装与配置，使用 oh-my-zsh 美化终端](https://www.haoyep.com/posts/zsh-config-oh-my-zsh/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)
-[一文搞定 Windows Terminal 设置与 zsh 安装【非WSL】](https://www.cnblogs.com/laugh12321/p/15788324.html#%E5%AE%89%E8%A3%85-oh-my-zsh)
-[Windows安装 Zsh 终端](https://blog.xlxs.top/archives/windows%E5%AE%89%E8%A3%85zsh%E7%BB%88%E7%AB%AF#id--1178998221)
+[zsh 安装与配置，使用 oh-my-zsh 美化终端](https://www.haoyep.com/posts/zsh-config-oh-my-zsh/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)  
+[一文搞定 Windows Terminal 设置与 zsh 安装【非WSL】](https://www.cnblogs.com/laugh12321/p/15788324.html#%E5%AE%89%E8%A3%85-oh-my-zsh)  
+[Windows安装 Zsh 终端](https://blog.xlxs.top/archives/windows%E5%AE%89%E8%A3%85zsh%E7%BB%88%E7%AB%AF#id--1178998221)  
