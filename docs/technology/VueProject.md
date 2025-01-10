@@ -6,7 +6,80 @@ tag:
 
 # Vue 项目源码结构分析
 
-### Vue 构建产物解释
+### 核心包结构
+
+**1.运行时相关：**
+
+`@vue/runtime-dom`
+- 处理浏览器 DOM 操作
+- 提供所有浏览器 API 的包装
+- 处理事件处理和 DOM 属性更新
+
+`@vue/runtime-core`
+- Vue 运行时核心引擎
+- 实现虚拟 DOM diff 算法  
+- 组件系统和生命周期
+- 响应式系统的集成
+
+`@vue/reactivity`
+- 响应式系统的核心实现
+- ref/reactive API
+- computed/watch API
+- 依赖收集与触发更新
+
+**2.编译时相关：**
+
+`@vue/compiler-dom`
+- 将模板字符串编译为渲染函数
+- 处理指令和插值语法
+
+`@vue/compiler-core`
+- 核心编译器逻辑
+- 抽象语法树（AST）生成与操作
+- 模板解析和代码生成的基础实现
+
+`@vue/compiler-sfc`
+- 单文件组件（.vue 文件）编译器
+- 处理 <template>、<script> 和 <style> 块
+- 提供自定义块支持
+
+**3.工具包：**
+
+`@vue/shared`
+- 各个包之间共享的工具函数
+- 通用类型定义
+- 常量定义
+
+`@vue/server-renderer`
+- 服务端渲染实现
+- 同构渲染支持
+- 流式渲染能力
+
+### 项目结构
+
+```md
+packages/
+  ├── compiler-core/         # 编译核心
+  │   └── package.json
+  ├── compiler-dom/          # DOM编译相关
+  │   └── package.json  
+  ├── compiler-sfc/          # 单文件组件编译
+  │   └── package.json
+  ├── reactivity/           # 响应式系统
+  │   └── package.json
+  ├── runtime-core/         # 运行时核心
+  │   └── package.json
+  ├── runtime-dom/          # DOM运行时
+  │   └── package.json
+  ├── server-renderer/      # SSR相关
+  │   └── package.json
+  ├── shared/              # 共享工具
+  │   └── package.json
+  └── vue/                 # 完整构建
+      └── package.json
+```
+
+### Vue 构建产物解释  
 
 #### 1. `vue.cjs.js`
 - **用途**：这是一个兼容 CommonJS 规范的构建版本，主要用于 Node.js 环境。
