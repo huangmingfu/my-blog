@@ -40,7 +40,7 @@ tag:
 
 `@vue/compiler-sfc`
 - 单文件组件（.vue 文件）编译器
-- 处理 <template>、<script> 和 <style> 块
+- 处理 `<template>、<script> 和 <style>` 块
 - 提供自定义块支持
 
 **3.工具包：**
