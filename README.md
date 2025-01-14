@@ -1,7 +1,8 @@
-# 无名的博客
-基于VitePress+@sugarat/theme主题
+# 我的博客
 
-地址：https://huangmingfu.github.io/my-blog
+基于 `VitePress` + [@sugarat/theme](https://theme.sugarat.top/) 主题。
+
+预览地址：https://huangmingfu.github.io/my-blog
 
 ## Usage
 先安装 `pnpm`
