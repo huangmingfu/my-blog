@@ -68,6 +68,39 @@ const blogTheme = getThemeConfig({
     title: '',
     list: [
       {
+        title: 'ant-design-vue-playground',
+        description: '👆 Ant Design Vue Playground 演练场',
+        time: {
+          start: '2025/02/01'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'ant-design-vue-playground',
+          branch: 'main',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/ant-design-vue-playground',
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/pic-go/202502171147744.png']
+      },
+      {
+        title: 'hmf-cli',
+        description: '👆 一个快捷创建完整模板项目的命令行工具',
+        time: {
+          start: '2025/01/05'
+        },
+        github: {
+          owner: 'huangmingfu',
+          repo: 'hmf-cli',
+          branch: 'master',
+        },
+        status: {
+          text: '积极维护中'
+        },
+        url: 'https://github.com/huangmingfu/h-cli',
+      },
+      {
         title: 'vue3-turbo-component-lib-template',
         description: '👆 一个基于 Turborepo + Vue 3.5 + TypeScript 的现代化组件库模板',
         time: {
@@ -82,7 +115,7 @@ const blogTheme = getThemeConfig({
           text: '积极维护中'
         },
         url: 'https://github.com/huangmingfu/vue3-turbo-component-lib-template',
-        cover: ['https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241135445.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241135191.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241136925.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241136535.png']
+        cover: ['https://huangmingfu.github.io/drawing-bed/images/pic-go/202412291431548.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241135191.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241136925.png', 'https://huangmingfu.github.io/drawing-bed/images/pic-go/202411241136535.png']
       },
       {
         title: 'my-blog',
