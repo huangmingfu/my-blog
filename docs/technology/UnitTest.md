@@ -16,7 +16,29 @@ tag:
 import { describe, expect, it } from 'vitest';
 ```
 
-### 1. 第三方库
+### 1. 普通工具方法测试
+```ts
+import { describe, expect, it } from 'vitest';
+
+describe('toArray', () => {
+  it('应将单个元素转换为数组', () => {
+    expect(toArray(1)).toEqual([1]);
+    expect(toArray('hello')).toEqual(['hello']);
+    expect(toArray({ key: 'value' })).toEqual([{ key: 'value' }]);
+    expect(toArray(null)).toEqual([null]);
+    expect(toArray(undefined)).toEqual([undefined]);
+  });
+
+  it('应返回输入的数组', () => {
+    expect(toArray([1, 2, 3])).toEqual([1, 2, 3]);
+    expect(toArray(['a', 'b', 'c'])).toEqual(['a', 'b', 'c']);
+    expect(toArray([null])).toEqual([null]);
+    expect(toArray([undefined])).toEqual([undefined]);
+  });
+});
+```
+
+### 2. 第三方库封装方法测试
 ```ts
 import { formatToDateTime } from '..';
 import dayjs from 'dayjs';
