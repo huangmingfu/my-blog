@@ -42,10 +42,6 @@ sidebar: false
   <img src="https://img.shields.io/badge/-Less-D3D3D3?logo=Less&logoColor=1D365D" alt="Less" style="display: inline-block;" />&nbsp;
 </p>
 
-## 个人作品
-
-<UserWorksPage />
-
 ::: tip ...
 <em>很惭愧 😞</em>
 
@@ -54,14 +50,16 @@ sidebar: false
 <em>谢谢大家的光临 🥰</em>  
 :::
 
-<hr>
-
 ## 联系我
 
 - `GitHub:` - [@FrinedA](https://github.com/huangmingfu)
 - `联系QQ:` - **212149997**
 - `Email:` - **212149997@qq.com**
 - `哔哩哔哩:` - [@像个小丑掩悲伤演欢](https://space.bilibili.com/37606570)
+
+## 个人作品
+
+<UserWorksPage />
 
 <style scoped lang="scss">
   :deep(.user-works-page){
