@@ -128,15 +128,17 @@ packages/
 
 ## Vue 构建产物解释  
 
-如何生产环境时，使用打包压缩后的 `*.prod.js` 文件？
+如何在生产环境时使用打包压缩后的 `*.prod.js` 文件？
 
 - **手动选择：**
-在不使用打包工具时，开发者需要手动选择使用哪个版本的文件。生产环境应该手动引入*.prod.js文件。
+
+在不使用打包工具时，开发者需要手动选择使用哪个版本的文件。生产环境应该手动引入 `*.prod.js` 文件。
 
 - **打包工具自动处理：**
+
 使用 Vite/Webpack 等打包工具时，它们会根据构建模式自动处理。
 
-当运行 npm run build 时，打包工具会将 process.env.NODE_ENV 设置为`production`。Vue会根据这个环境变量自动应用生产环境的优化。
+当运行 `npm run build` 时，打包工具会将 `process.env.NODE_ENV` 设置为`production`。Vue 会根据这个环境变量自动应用生产环境的优化。
 ```js
 // pkg.json
 "exports": {
