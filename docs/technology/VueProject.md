@@ -11,71 +11,108 @@ tag:
 **1.运行时相关：**
 
 `@vue/runtime-dom`
-- 处理浏览器 DOM 操作
-- 提供所有浏览器 API 的包装
-- 处理事件处理和 DOM 属性更新
+- 处理浏览器 DOM 操作和更新
+- 提供所有浏览器 API 的包装(如 DOM 事件处理)
+- 实现平台特定的节点操作方法
+- 集成 runtime-core 暴露的功能
 
-`@vue/runtime-core`
+`@vue/runtime-core` 
 - Vue 运行时核心引擎
-- 实现虚拟 DOM diff 算法  
-- 组件系统和生命周期
-- 响应式系统的集成
+- 实现虚拟 DOM 的创建和 diff 算法
+- 管理组件实例、生命周期和依赖注入
+- 提供内置组件(如 Transition、KeepAlive)
+- 错误处理机制
 
 `@vue/reactivity`
 - 响应式系统的核心实现
-- ref/reactive API
-- computed/watch API
-- 依赖收集与触发更新
+- 提供 ref/reactive/computed/watch API
+- 实现依赖收集与派发更新
+- 处理集合类型的响应式转换
+- 提供响应式工具函数(如 toRefs、unref等)
 
 **2.编译时相关：**
 
 `@vue/compiler-dom`
-- 将模板字符串编译为渲染函数
-- 处理指令和插值语法
+- 浏览器平台特定的编译逻辑
+- 处理 v-on、v-model 等指令转换
+- 生成浏览器平台特定的代码
 
 `@vue/compiler-core`
-- 核心编译器逻辑
-- 抽象语法树（AST）生成与操作
-- 模板解析和代码生成的基础实现
+- 平台无关的编译器核心逻辑
+- 实现模板解析生成 AST
+- 实现 AST 转换和优化
+- 生成渲染函数代码
+- 支持自定义指令编译
 
 `@vue/compiler-sfc`
-- 单文件组件（.vue 文件）编译器
-- 处理 `<template>、<script> 和 <style>` 块
-- 提供自定义块支持
+- 单文件组件(.vue)的编译器
+- 处理 template/script/style 块的解析
+- 支持 CSS 预处理器集成
+- 处理资源引用和 URL 转换
+- 提供 HMR 支持相关的编译功能
 
 **3.工具包：**
 
 `@vue/shared`
-- 各个包之间共享的工具函数
-- 通用类型定义
-- 常量定义
+- 各个包之间共享的工具函数和常量
+- 通用的类型定义和接口
+- 共享的工具方法(如对象/数组操作等)
+- 环境检测相关的工具函数
 
 `@vue/server-renderer`
-- 服务端渲染实现
-- 同构渲染支持
-- 流式渲染能力
+- 服务端渲染(SSR)的实现
+- 支持同构渲染
+- 提供流式渲染能力
+- 处理客户端激活(hydration)
+- 实现SSR特定的编译优化
 
 ## 项目结构
 
 ```md
 packages/
-  ├── compiler-core/         # 编译核心
+  ├── compiler-core/         # 编译器核心模块
+  │   ├── src/              # 源代码目录
+  │   ├── __tests__/        # 测试文件
+  │   └── package.json      # 包配置文件
+  │
+  ├── compiler-dom/         # 浏览器平台编译模块
+  │   ├── src/              
+  │   ├── __tests__/        
+  │   └── package.json      
+  │
+  ├── compiler-sfc/         # 单文件组件编译模块
+  │   ├── src/              
+  │   ├── __tests__/        
   │   └── package.json
-  ├── compiler-dom/          # DOM编译相关
-  │   └── package.json  
-  ├── compiler-sfc/          # 单文件组件编译
+  │
+  ├── reactivity/          # 响应式系统模块
+  │   ├── src/              
+  │   ├── __tests__/        
   │   └── package.json
-  ├── reactivity/           # 响应式系统
+  │
+  ├── runtime-core/        # 运行时核心模块
+  │   ├── src/              
+  │   ├── __tests__/        
   │   └── package.json
-  ├── runtime-core/         # 运行时核心
+  │
+  ├── runtime-dom/         # 浏览器运行时模块
+  │   ├── src/              
+  │   ├── __tests__/        
   │   └── package.json
-  ├── runtime-dom/          # DOM运行时
+  │
+  ├── server-renderer/     # 服务端渲染模块
+  │   ├── src/              
+  │   ├── __tests__/        
   │   └── package.json
-  ├── server-renderer/      # SSR相关
+  │
+  ├── shared/             # 共享工具模块
+  │   ├── src/              
+  │   ├── __tests__/        
   │   └── package.json
-  ├── shared/              # 共享工具
-  │   └── package.json
-  └── vue/                 # 完整构建
+  │
+  └── vue/                # Vue 完整构建入口
+      ├── src/              
+      ├── __tests__/        
       └── package.json
 ```
 
