@@ -186,6 +186,7 @@ import { mount,flushPromises } from '@vue/test-utils'
 ## e2e 端到端测试
 
 Playwright、Cypress等工具。
+
 ```bash
 npm install @playwright/test -D
 ```
@@ -201,9 +202,9 @@ export default defineConfig({
 // tests/example.spec.ts
 import { expect, test } from '@playwright/test';
 
-test('should navigate to the homepage and check the title', async ({ page }) => {
+test('应该导航到主页并检查标题', async ({ page }) => {
   // 导航到你的应用首页
-  await page.goto('http://localhost:3000'); // 请根据你的应用实际情况修改URL
+  await page.goto('http://localhost:5173'); // 请根据你的应用实际情况修改URL
 
   // 检查页面标题是否正确
   await expect(page).toHaveTitle('首页'); // 请根据你的应用实际情况修改标题
