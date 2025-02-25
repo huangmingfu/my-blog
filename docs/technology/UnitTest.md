@@ -206,7 +206,7 @@ test('should navigate to the homepage and check the title', async ({ page }) => 
   await page.goto('http://localhost:3000'); // 请根据你的应用实际情况修改URL
 
   // 检查页面标题是否正确
-  await expect(page).toHaveTitle(/Your Page Title/); // 请根据你的应用实际情况修改标题
+  await expect(page).toHaveTitle('首页'); // 请根据你的应用实际情况修改标题
 });
 ```
 
