@@ -4,13 +4,13 @@ tag:
  - Technology
 ---
 
-# Vitest 单元测试
+# 测试
 
 ## 为什么需要？
 
 新增功能或修复一个bug时，方便回归测试，确保不会影响其他，产生其他的bug。
 
-## 工具函数
+## 单元测试
 
 ```ts
 import { describe, expect, it } from 'vitest';
@@ -57,7 +57,7 @@ describe('formatToDateTime', () => {
 })
 ```
 
-## vue 组件
+## vue 组件测试
 
 ```ts
 import { describe, expect, it, vi } from 'vitest'
@@ -182,3 +182,59 @@ import { mount,flushPromises } from '@vue/test-utils'
 
 ### 总结：
 这些测试用例涉及了广泛的验证，包括属性、样式、文本内容、事件处理、异步行为、插槽内容以及属性传递等。这确保了组件不仅能够正确渲染，还能正确响应用户交互和其他逻辑。
+
+## e2e 端到端测试
+
+Playwright、Cypress等工具。
+```bash
+npm install @playwright/test -D
+```
+```ts
+// playwright.config.ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests', // 确保这个路径指向你的测试文件目录
+  /* 其他配置项 */
+});
+
+// tests/example.spec.ts
+import { expect, test } from '@playwright/test';
+
+test('should navigate to the homepage and check the title', async ({ page }) => {
+  // 导航到你的应用首页
+  await page.goto('http://localhost:3000'); // 请根据你的应用实际情况修改URL
+
+  // 检查页面标题是否正确
+  await expect(page).toHaveTitle(/Your Page Title/); // 请根据你的应用实际情况修改标题
+});
+```
+
+## 将测试集成到 CI/CD 流水线中
+
+```bash
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run unit tests
+        run: npm run test:unit
+      - name: Run e2e tests
+        run: npm run test:e2e
+```
