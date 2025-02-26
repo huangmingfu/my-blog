@@ -12,8 +12,17 @@ tag:
 
 ## 单元测试
 
+
+
 ```ts
-import { describe, expect, it } from 'vitest';
+/**
+ * @api describe: 形成一个作用域
+ * @api test/it: 定义了一组关于测试期望的方法，它接收测试名称和一个含有测试期望的函数
+ * @api expect: 用来创建断言
+ * @api toBe: 可以用于断言原始类型是否相等，或者对象是否共享相同的引用
+ * @api toEqual: 断言实际值是否等于接收到的值或具有相同的结构（如果是对象，则递归比较它们）
+ */
+import { describe, expect, it, test, toEqual} from 'vitest';
 ```
 
 ### 1. 普通工具方法测试
