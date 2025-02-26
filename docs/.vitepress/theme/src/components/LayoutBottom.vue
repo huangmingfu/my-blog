@@ -4,10 +4,14 @@
     <span>👤访客数 <span id="busuanzi_value_site_uv" /> 次&nbsp;|&nbsp;</span>
     <span>🏃已运行 {{ getDiffDate("2024-03-08") }} 天</span>
   </div>
+  <ReloadPrompt />
+  <!-- <PWABadge /> -->
 </template>
 
 <script setup lang="ts">
 import { getDiffDate } from "../utils/tool";
+import ReloadPrompt from "./ReloadPrompt.vue";
+// import PWABadge from "./PWABadge.vue";
 </script>
 
 <style scoped lang="scss">
@@ -24,11 +28,11 @@ import { getDiffDate } from "../utils/tool";
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  &>span{
+  & > span {
     white-space: nowrap;
   }
 }
-.blog-footer + .layout-bottom-extra-tips{
+.blog-footer + .layout-bottom-extra-tips {
   display: flex;
 }
 </style>
