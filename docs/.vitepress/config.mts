@@ -12,7 +12,7 @@ export default defineConfig({
   base: '/my-blog/',
   lang: 'zh-cn',
   title: 'a无名',
-  description: 'a无名的博客，基于 vitepress+@sugarat/theme主题 实现',
+  description: 'a无名的博客，基于 vitepress+@sugarat/theme 主题实现',
   lastUpdated: true,
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
@@ -61,9 +61,41 @@ export default defineConfig({
     plugins: [
       VitePWA({
         devOptions: {
+          // 在开发环境中启用 PWA 功能
           enabled: true,
+          // 抑制警告信息
+          suppressWarnings: true,
+          // 服务工作者的类型为 module
+          type: "module",
         },
-        mode: 'development',
+        // 设置服务工作者注册类型为 "prompt"，提示用户注册
+        registerType: "prompt",
+        // 不自动注入服务工作者注册代码
+        injectRegister: false,
+        pwaAssets: {
+          // 启用 PWA 资产生成
+          disabled: false,
+          // 使用配置文件
+          config: true,
+        },
+        manifest: {
+          // 应用的完整名称
+          name: "my-blog",
+          // 应用的短名称
+          short_name: "my-blog",
+          // 应用的描述
+          description: "huangmignfu blog",
+          // 应用的主题颜色
+          theme_color: "#ffffff",
+        },
+        workbox: {
+          // 缓存所有 js, css, html, svg, png, ico 文件
+          globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico}"],
+          // 清理过期的缓存
+          cleanupOutdatedCaches: true,
+          // 立即控制所有客户端
+          clientsClaim: true,
+        },
       }),
       // VitePWA({
       //   /* 开发环境启用 sw */

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { watchEffect } from "vue";
-// @ts-expect-error
 import { useRegisterSW } from "virtual:pwa-register/vue";
 
 const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
@@ -9,12 +7,7 @@ const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
   },
 });
 
-watchEffect(() => {
-  console.log(`offlineReady.value -->`, offlineReady.value);
-  console.log(`needRefresh.value -->`, needRefresh.value);
-});
-
-async function close() {
+function close() {
   offlineReady.value = false;
   needRefresh.value = false;
 }
@@ -23,13 +16,11 @@ async function close() {
 <template>
   <div v-if="offlineReady || needRefresh" class="pwa-toast" role="alert">
     <div class="message">
-      <span v-if="offlineReady"> App ready to work offline </span>
-      <span v-else>
-        New content available, click on reload button to update.
-      </span>
+      <span v-if="offlineReady"> 应用程序准备离线工作... </span>
+      <span v-else> 有新内容变化，点击重新加载按钮更新。 </span>
     </div>
-    <button v-if="needRefresh" @click="updateServiceWorker()">Reload</button>
-    <button @click="close">Close</button>
+    <button v-if="needRefresh" @click="updateServiceWorker()">重新加载</button>
+    <button @click="close">关闭</button>
   </div>
 </template>
 

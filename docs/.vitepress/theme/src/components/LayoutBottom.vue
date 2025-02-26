@@ -5,13 +5,11 @@
     <span>🏃已运行 {{ getDiffDate("2024-03-08") }} 天</span>
   </div>
   <ReloadPrompt />
-  <!-- <PWABadge /> -->
 </template>
 
 <script setup lang="ts">
 import { getDiffDate } from "../utils/tool";
 import ReloadPrompt from "./ReloadPrompt.vue";
-// import PWABadge from "./PWABadge.vue";
 </script>
 
 <style scoped lang="scss">
