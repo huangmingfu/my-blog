@@ -4,6 +4,11 @@
   "private": true,
   "author": "a无名",
   "license": "MIT",
+  "homepage": "https://huangmingfu.github.io/my-blog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huangmingfu/my-blog.git"
+  },
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
