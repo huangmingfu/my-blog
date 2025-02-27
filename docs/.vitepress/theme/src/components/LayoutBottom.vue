@@ -4,7 +4,9 @@
     <span>👤访客数 <span id="busuanzi_value_site_uv" /> 次&nbsp;|&nbsp;</span>
     <span>🏃已运行 {{ getDiffDate("2024-03-08") }} 天</span>
   </div>
-  <ReloadPrompt />
+  <ClientOnly>
+    <ReloadPrompt />
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
