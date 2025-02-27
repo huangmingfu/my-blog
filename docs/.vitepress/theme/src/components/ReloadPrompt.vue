@@ -1,0 +1,50 @@
+<script setup lang="ts">
+import { useRegisterSW } from "virtual:pwa-register/vue";
+
+const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
+  onRegisteredSW(swUrl) {
+    console.log(`Service Worker at: ${swUrl}`);
+  },
+});
+
+function close() {
+  offlineReady.value = false;
+  needRefresh.value = false;
+}
+</script>
+
+<template>
+  <div v-if="offlineReady || needRefresh" class="pwa-toast" role="alert">
+    <div class="message">
+      <span v-if="offlineReady"> 应用程序准备离线工作... </span>
+      <span v-else> 有新内容变化，点击重新加载按钮更新。 </span>
+    </div>
+    <button v-if="needRefresh" @click="updateServiceWorker()">重新加载</button>
+    <button @click="close">关闭</button>
+  </div>
+</template>
+
+<style>
+.pwa-toast {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 16px;
+  padding: 12px;
+  border: 1px solid #8885;
+  border-radius: 4px;
+  z-index: 1;
+  text-align: left;
+  box-shadow: 3px 4px 5px 0px #8885;
+}
+.pwa-toast .message {
+  margin-bottom: 8px;
+}
+.pwa-toast button {
+  border: 1px solid #8885;
+  outline: none;
+  margin-right: 5px;
+  border-radius: 2px;
+  padding: 3px 10px;
+}
+</style>

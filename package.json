@@ -4,6 +4,11 @@
   "private": true,
   "author": "a无名",
   "license": "MIT",
+  "homepage": "https://huangmingfu.github.io/my-blog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huangmingfu/my-blog.git"
+  },
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
@@ -23,7 +28,9 @@
     "busuanzi.pure.js": "^1.0.3",
     "sass": "^1.83.4",
     "typescript": "^5.7.3",
+    "vite-plugin-pwa": "^0.21.1",
     "vitepress": "1.6.3",
-    "vitepress-plugin-music": "^0.0.9"
+    "vitepress-plugin-music": "^0.0.9",
+    "workbox-window": "^7.3.0"
   }
 }
