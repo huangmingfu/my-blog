@@ -257,3 +257,41 @@ prompt_agnoster_setup "$@"
 [zsh 安装与配置，使用 oh-my-zsh 美化终端](https://www.haoyep.com/posts/zsh-config-oh-my-zsh/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)  
 [一文搞定 Windows Terminal 设置与 zsh 安装【非WSL】](https://www.cnblogs.com/laugh12321/p/15788324.html#%E5%AE%89%E8%A3%85-oh-my-zsh)  
 [Windows安装 Zsh 终端](https://blog.xlxs.top/archives/windows%E5%AE%89%E8%A3%85zsh%E7%BB%88%E7%AB%AF#id--1178998221)  
+
+## 番外（Vim 简单操作）
+
+```sh
+1. 进入 Vim
+vim 文件名：打开指定文件。
+
+2. 模式切换
+普通模式：默认进入的模式，用于执行命令。
+插入模式：按 i 键进入，可以编辑文本。
+退出插入模式：按 Esc 键返回普通模式。
+
+3. 保存和退出
+:w：保存文件。
+:q：退出 Vim。
+:wq：保存并退出。
+:q!：强制退出且不保存。
+
+4. 搜索
+/关键词：在普通模式下输入，按 Enter 键开始搜索。
+n：查找下一个匹配项。
+N：查找上一个匹配项。
+
+5. 编辑操作
+x：删除当前光标下的字符。
+dd：删除整行。
+yy：复制当前行。
+p：粘贴已复制或剪切的内容到光标下方。
+u：撤销上一次操作。
+Ctrl + r：重做上一次撤销的操作。
+
+6. 光标移动
+方向键或 h（左）、j（下）、k（上）、l（右）：移动光标。
+0：跳转到行首。
+$：跳转到行尾。
+G：跳转到文件末尾。
+gg：跳转到文件开头。
+```
