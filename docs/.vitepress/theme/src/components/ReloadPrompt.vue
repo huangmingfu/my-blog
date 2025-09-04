@@ -36,6 +36,7 @@ function close() {
   z-index: 1;
   text-align: left;
   box-shadow: 3px 4px 5px 0px #8885;
+  background-color: #fff;
 }
 .pwa-toast .message {
   margin-bottom: 8px;
