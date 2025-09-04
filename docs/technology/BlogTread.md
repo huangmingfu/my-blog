@@ -1,5 +1,4 @@
 ---
-top: 2
 tag:
  - Technology
 ---
