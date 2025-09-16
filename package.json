@@ -17,7 +17,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
     "@sugarat/theme": "^0.5.6",
-    "element-plus": "^2.11.1",
+    "element-plus": "^2.11.2",
     "pagefind": "^1.4.0",
     "vue": "3.5.21"
   },
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "busuanzi.pure.js": "^1.0.3",
-    "sass": "^1.92.0",
+    "sass": "^1.92.1",
     "typescript": "^5.9.2",
     "vite-plugin-pwa": "^1.0.3",
     "vitepress": "1.6.4",
