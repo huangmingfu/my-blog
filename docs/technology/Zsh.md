@@ -23,6 +23,7 @@ c. 打开 Git Bash 终端，`输入 zsh 命令`，然后直接输入 0 结束并
 git bash执行下面命令，出现oh-my-zsh则安装成功。
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"  # 上面不行的话，使用这个
 ```
 
 ## 3. 配置插件
@@ -49,6 +50,7 @@ git clone ... # 下载相关主题
 # powerlevel10k 最受欢迎的主题，但是需要配置相关字体，比较麻烦（需要git clone下载）
 # spaceship antfu同款主题（需要git clone下载）
 ```
+[相关插件克隆地址](##相关插件克隆地址)
 
 ## 5. 配置zsh
 ```sh
