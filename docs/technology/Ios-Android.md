@@ -209,6 +209,34 @@ CSS中的1px并不等于物理设备的1像素。例如，iOS的devicePixelRatio
    - 使用postcss-write-svg等PostCSS插件
    - 或者直接使用SVG来绘制1px边框，兼容性最好
 
+### position: fixed底部元素在键盘弹起时跟随移动
+
+**现象：**
+当使用 `position: fixed; left: 0; bottom: 0;` 固定在底部的元素，在软键盘弹起时，该元素会跟随键盘一起上移，遮挡页面内容。
+
+**原因：**
+在移动端浏览器中，软键盘弹起时会改变视口的高度，对于 `position: fixed` 的元素，浏览器会重新计算其位置，导致元素跟随键盘移动。
+
+**解决方案：**
+不要使用 `position: fixed`，改用 `position: absolute`，并将最外层容器设置为 `position: relative`。
+
+```css
+/* 最外层容器 */
+.container {
+  position: relative;
+  height: 100%;
+}
+
+/* 底部固定元素 */
+.fixed-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+```
+
+这样可以确保底部元素相对于容器定位，而不受软键盘弹起的影响。
+
 ## iOS 特有问题
 
 ### 视频播放全屏问题
