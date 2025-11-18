@@ -39,6 +39,15 @@ git clone ... # 下载相关插件
 # zsh-z 快速切换目录（内置）
 ```
 
+### 相关插件克隆地址：
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# spaceship主题：
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+```
+
 ## 4.配置主题
 ```sh
 cd ~/.oh-my-zsh/themes
@@ -50,7 +59,6 @@ git clone ... # 下载相关主题
 # powerlevel10k 最受欢迎的主题，但是需要配置相关字体，比较麻烦（需要git clone下载）
 # spaceship antfu同款主题（需要git clone下载）
 ```
-[相关插件克隆地址](##相关插件克隆地址)
 
 ## 5. 配置zsh
 ```sh
@@ -85,15 +93,6 @@ fi
 
 ## 7.VSCode 配置 Git bash 为默认终端
 控制台->终端->点击加号->选择默认配置文件->选择Git bash
-
-## 相关插件克隆地址：
-```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# spaceship主题：
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-```
 
 ## 其他
 1. [git别名命令文档](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md)
