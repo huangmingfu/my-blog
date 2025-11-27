@@ -594,4 +594,130 @@ JavaScript 会自动将左侧的值转换成布尔类型以判断条件成立与
 
 ### 保持组件纯粹
 
-React 便围绕着这个概念进行设计。React 假设你编写的所有组件都是纯函数。也就是说，对于相同的输入，你所编写的 React 组件必须总是返回相同的 JSX。不要多次调用这个组件会产生不同的 JSX！纯函数仅仅执行计算，因此调用它们两次不会改变任何东西。
+React 便围绕着这个概念进行设计。React 假设你编写的所有组件都是纯函数。也就是说，对于相同的输入，你所编写的 React 组件必须总是返回相同的 JSX。不要多次调用这个组件会产生不同的 JSX！纯函数仅仅执行计算，因此调用它们两次不会改变任何东西。与渲染函数不同，事件处理函数不需要是 纯函数，事件处理函数是执行副作用的最佳位置。
+
+在 “严格模式” 下开发时，React 会调用每个组件的函数两次，这可以帮助发现由不纯函数引起的错误。
+
+### 传递给事件处理函数的函数应直接传递，而非调用。例如：
+
+```typescript
+传递一个函数（正确）	
+<button onClick={() => alert('...')}>	
+
+调用一个函数（错误）
+<button onClick={alert('...')}>
+```
+
+### 事件处理函数 props 应该以 on 开头，后跟一个大写字母。例如： `onPlayMovie 和 onUploadImage`
+
+
+### Hooks ——以 use 开头的函数——只能在组件或自定义 Hook 的最顶层调用。
+
+你不能在条件语句、循环语句或其他嵌套函数内调用 Hook。Hook 是函数，但将它们视为关于组件需求的无条件声明会很有帮助。在组件顶部 “use” React 特性，类似于在文件顶部“导入”模块。
+
+### 避免冗余的 state 
+
+```typescript
+// bad
+const [firstName, setFirstName] = useState('');
+const [lastName, setLastName] = useState('');
+const [fullName, setFullName] = useState('');
+
+function handleFirstNameChange(e) {
+  setFirstName(e.target.value);
+  setFullName(e.target.value + ' ' + lastName);
+}
+
+function handleLastNameChange(e) {
+  setLastName(e.target.value);
+  setFullName(firstName + ' ' + e.target.value);
+}
+
+// good
+// 这个表单有三个 state 变量：firstName、lastName 和 fullName。然而，fullName 是多余的。在渲染期间，你始终可以从 firstName 和 lastName 中计算出 fullName，因此需要把它从 state 中删除。
+const [firstName, setFirstName] = useState('');
+const [lastName, setLastName] = useState('');
+
+const fullName = firstName + ' ' + lastName;
+```
+
+#### 不要在 state 中镜像 props 
+
+除非你特别想防止更新，否则不要将 props 放入 state 中。
+
+以下代码是体现 state 冗余的一个常见例子：
+
+```typescript
+function Message({ messageColor }) {
+  const [color, setColor] = useState(messageColor);
+这里，一个 color state 变量被初始化为 messageColor 的 prop 值。这段代码的问题在于，如果父组件稍后传递不同的 messageColor 值（例如，将其从 'blue' 更改为 'red'），则 color state 变量将不会更新！ state 仅在第一次渲染期间初始化。
+```
+
+这就是为什么在 state 变量中，“镜像”一些 prop 属性会导致混淆的原因。相反，你要在代码中直接使用 messageColor 属性。如果你想给它起一个更短的名称，请使用常量：
+
+```typescript
+function Message({ messageColor }) {
+  const color = messageColor;
+这种写法就不会与从父组件传递的属性失去同步。
+
+只有当你 想要 忽略特定 props 属性的所有更新时，将 props “镜像”到 state 才有意义。按照惯例，prop 名称以 initial 或 default 开头，以阐明该 prop 的新值将被忽略：
+
+function Message({ initialColor }) {
+  // 这个 `color` state 变量用于保存 `initialColor` 的 **初始值**。
+  // 对于 `initialColor` 属性的进一步更改将被忽略。
+  const [color, setColor] = useState(initialColor);
+```
+
+#### 避免重复的 state 
+
+对于选择类型的 UI 模式，请在 state 中保存 ID 或索引而不是对象本身。
+
+```typescript
+// bad
+const [items, setItems] = useState(initialItems);
+const [selectedItem, setSelectedItem] = useState(
+  items[0]
+);
+// 当前，它将所选元素作为对象存储在 selectedItem state 变量中。然而，这并不好：selectedItem 的内容与 items 列表中的某个项是同一个对象。 这意味着关于该项本身的信息在两个地方产生了重复。
+
+// good
+const [items, setItems] = useState(initialItems);
+const [selectedId, setSelectedId] = useState(0);
+
+const selectedItem = items.find(item =>
+  item.id === selectedId
+);
+// 你不需要在 state 中保存 选定的元素，因为只有 选定的 ID 是必要的。其余的可以在渲染期间计算。
+```
+
+#### 避免深度嵌套的 state 
+
+你确实可以随心所欲地嵌套 state，但是将其“扁平化”可以解决许多问题。这使得 state 更容易更新，并且有助于确保在嵌套对象的不同部分中没有重复。
+如果 state 嵌套太深，难以轻松更新，可以考虑将其“扁平化”。
+
+```typescript
+export const initialTravelPlan = {
+  0: {
+    id: 0,
+    title: '(Root)',
+    childIds: [1, 42, 46],
+  },
+  1: {
+    id: 1,
+    title: 'Earth',
+    childIds: [2, 10, 19, 26, 34]
+  },
+  2: {
+    id: 2,
+    title: 'Africa',
+    childIds: [3, 4, 5, 6 , 7, 8, 9]
+  },
+}
+
+现在 state 已经“扁平化”（也称为“规范化”），更新嵌套项会变得更加容易。
+
+现在要删除一个地点，你只需要更新两个 state 级别：
+
+其 父级 地点的更新版本应该从其 childIds 数组中排除已删除的 ID。
+其根级“表”对象的更新版本应包括父级地点的更新版本。
+```
