@@ -5,3 +5,5 @@ cache
 .temp
 .DS_Store
 docs/.vitepress/dist
+.trae
+*.local

@@ -1,6 +1,8 @@
 import BlogTheme from '@sugarat/theme'
 import { h } from 'vue';
 import LayoutBottom from './src/components/LayoutBottom.vue';
+// PWA更新提示组件
+import ReloadPrompt from './src/components/ReloadPrompt.vue';
 // 自定义样式重载
 import './style.scss'
 // 自定义主题色
@@ -18,7 +20,11 @@ export default {
     //@ts-ignore
     Layout: h(BlogTheme.Layout, undefined, {
         //https://vitepress.dev/zh/guide/extending-default-theme#layout-slots全量插槽文档
-        'layout-bottom': () => h(LayoutBottom)
+        'layout-bottom': () => h('div', {}, [
+            h(LayoutBottom),
+            // PWA更新提示组件，固定定位显示在右下角
+            h(ReloadPrompt)
+        ])
     }),
     async enhanceApp({ app, router }) {
         //访问量统计

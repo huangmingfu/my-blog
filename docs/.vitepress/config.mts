@@ -17,7 +17,22 @@ export default defineConfig({
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
     // 配置网站的图标（显示在浏览器的 tab 上）
-    ['link', { rel: 'icon', href: '/my-blog/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/my-blog/favicon.ico' }],
+    // PWA相关配置
+    // 指定manifest文件路径
+    ['link', { rel: 'manifest', href: '/my-blog/manifest.webmanifest' }],
+    // 主题颜色（移动端浏览器地址栏颜色）
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    // iOS Safari支持
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: 'a无名博客' }],
+    ['link', { rel: 'apple-touch-icon', href: '/my-blog/logo.jpg' }],
+    // Microsoft Tiles支持
+    ['meta', { name: 'msapplication-TileImage', content: '/my-blog/logo.jpg' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#ffffff' }],
+    // 注册Service Worker
+    ['script', { src: '/my-blog/registerSW.js' }],
   ],
   themeConfig: {
     // 展示 2,3 级标题在目录中
@@ -60,6 +75,8 @@ export default defineConfig({
   vite: {
     plugins: [
       VitePWA({
+        // 指定PWA构建输出目录（VitePress的输出目录）
+        outDir: ".vitepress/dist",
         devOptions: {
           // 在开发环境中启用 PWA 功能
           enabled: true,
@@ -68,33 +85,95 @@ export default defineConfig({
           // 服务工作者的类型为 module
           type: "module",
         },
-        // 设置服务工作者注册类型为 "prompt"，提示用户注册
+        // 设置服务工作者注册类型为 "prompt"，提示用户更新
         registerType: "prompt",
-        // 不自动注入服务工作者注册代码
-        injectRegister: false,
+        // 内联注入服务工作者注册代码（VitePress推荐使用inline）
+        injectRegister: "script",
+        // 禁用PWA资产生成（需要额外安装依赖）
         pwaAssets: {
-          // 启用 PWA 资产生成
-          disabled: false,
-          // 使用配置文件
-          config: true,
+          disabled: true,
         },
         manifest: {
+          // 应用的唯一标识
+          id: "/",
           // 应用的完整名称
-          name: "my-blog",
+          name: "a无名的博客",
           // 应用的短名称
-          short_name: "my-blog",
+          short_name: "a无名博客",
           // 应用的描述
-          description: "huangmignfu blog",
+          description: "a无名的博客，基于 vitepress+@sugarat/theme 主题实现",
           // 应用的主题颜色
           theme_color: "#ffffff",
+          // 背景颜色
+          background_color: "#ffffff",
+          // 显示模式
+          display: "standalone",
+          // 启动URL
+          start_url: "/my-blog/",
+          // 作用域
+          scope: "/my-blog/",
+          // 图标配置
+          icons: [
+            {
+              src: "/my-blog/logo.jpg",
+              sizes: "192x192",
+              type: "image/jpeg",
+            },
+            {
+              src: "/my-blog/logo.jpg",
+              sizes: "512x512",
+              type: "image/jpeg",
+            },
+          ],
         },
         workbox: {
-          // 缓存所有 js, css, html, svg, png, ico 文件
-          globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico}"],
+          // 缓存所有 js, css, html, svg, png, jpg, ico, woff2, txt 文件
+          globPatterns: ["**/*.{js,css,html,svg,png,jpg,ico,woff2,txt}"],
           // 清理过期的缓存
           cleanupOutdatedCaches: true,
           // 立即控制所有客户端
           clientsClaim: true,
+          // 跳过等待，立即激活新的Service Worker
+          skipWaiting: true,
+          // 运行时缓存配置，用于缓存外部资源
+          runtimeCaching: [
+            {
+              // 匹配GitHub图床资源
+              urlPattern: /^https:\/\/huangmingfu\.github\.io\/drawing-bed\/.*/i,
+              // 缓存策略：优先使用缓存
+              handler: "CacheFirst",
+              options: {
+                cacheName: "drawing-bed-cache",
+                expiration: {
+                  // 最大缓存条目数
+                  maxEntries: 100,
+                  // 缓存有效期为30天
+                  maxAgeSeconds: 60 * 60 * 24 * 30,
+                },
+                cacheableResponse: {
+                  // 可缓存的响应状态码
+                  statuses: [0, 200],
+                },
+              },
+            },
+            {
+              // 匹配jsdelivr CDN资源
+              urlPattern: /^https:\/\/cdn\.jsdelivr\.net\/.*/i,
+              // 缓存策略：优先使用网络
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "jsdelivr-cache",
+                expiration: {
+                  maxEntries: 50,
+                  // 缓存有效期为7天
+                  maxAgeSeconds: 60 * 60 * 24 * 7,
+                },
+                cacheableResponse: {
+                  statuses: [0, 200],
+                },
+              },
+            },
+          ],
         },
       }),
       // VitePWA({
