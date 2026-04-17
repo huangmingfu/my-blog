@@ -1,3 +1,9 @@
+---
+sticky: 500
+tag:
+ - Technology
+---
+
 # ES6 生成器（Generator）
 
 ## 学习背景
